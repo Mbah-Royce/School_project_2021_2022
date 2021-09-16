@@ -41,22 +41,32 @@
         </thead>
         <tbody id="myTable">
             @foreach ($students as $student)
-                
             <tr>
                 <td>
-                    @foreach ($student['user'] as $user )
-                    <td>
-                     
-                    </td>
-                    @endforeach
+                    {{$student->id}}
                 </td>
                 <td>
-                    {{$student['class']}}  
+                    {{$student->user->first_name}}
                 </td>
                 <td>
-                    {{$student['field']}}
+                    {{$student->user->last_name}}
                 </td>
-                {{-- <td>
+                <td>
+                    {{$student->classRoom->name}}
+                </td>
+                <td>
+                    {{$student->user->gender}}
+                </td>
+                <td>
+                    {{$student->user->dob}}
+                </td>
+                <td>
+                    {{$student->user->phone}}
+                </td>
+                <td>
+                    {{$student->user->current_address}}
+                </td>
+                <td>
                     <a class="btn btn-primary" href="{{route('student.show',$student->id)}}" role="button">view</a> 
                     <a class="btn btn-secondary" href="{{route('student.edit',$student->id)}}" role="button">Edit</a>
                     <a class="btn btn-danger" href="" role="button"
@@ -65,12 +75,12 @@
                     if(confirm('Are you sure you really want to delete') )   {
                     document.getElementById('form-delete-{{$student->id}}')
                     .submit()
-                    }">Delete</a>
+                    }">Block</a>
                     <form style="display:none" id="{{'form-delete-'.$student->id}}" method="post" action="{{route('student.destroy',$student->id)}}">
                         @csrf
                         @method('delete')
                         </form>
-                </td> --}}
+                </td>
             </tr>
             @endforeach
 

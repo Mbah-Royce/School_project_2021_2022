@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ClassRoomController;
@@ -45,3 +46,5 @@ Route::resource('course', CourseController::class);
 Route::resource('classRoom', ClassRoomController::class);
 Route::resource('role', RoleController::class);
 Route::resource('permission', PermissionController::class);
+
+Route::post('/revoke/role/{id}',[AdminController::class,'revokeRole'])->name('role.revoke');

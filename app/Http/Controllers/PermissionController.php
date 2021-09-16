@@ -60,7 +60,8 @@ class PermissionController extends Controller
      */
     public function show($id)
     {
-        //
+        $permssions = Permission::findorfail($id);
+        return view('admin.permission.show',compact('permissions'));
     }
 
     /**

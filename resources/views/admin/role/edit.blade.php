@@ -22,23 +22,24 @@
 @section('content')
 <div class="card height-auto">
     <div class="card-body">
-        <h5 class="card-title">Role Creation Form</h5>
-        <x-alert/>
-        <form method="POST" action="{{route('role.store')}}">
+        <h5 class="card-title">Role Editing form</h5>
+        <form method="POST" action="{{route('role.update',$role->id)}}">
             @csrf
+            @method('patch')
             <div class="row justify-content-center">
                 <div class="col-xl-6 col-12 border">
                     <div class="row">
                 <div class="col-xl-6 col-lg-6 col-12 form-group">
                     <label>Role Name *</label>
-                    <input type="text" placeholder="" class="form-control @error('role') is-invalid @enderror" name="role">
+                    <input type="text" placeholder="" class="form-control @error('role') is-invalid @enderror" name="role"
+                  value = {{$role->name}}>
                     @error('role')
                 <p class="text-danger">{{ $message }}</p>
                     @enderror
                 </div>
                 <div class="col-xl-12 col-lg-6 col-12 form-group">
                     <label>Role Desciption</label>
-                    <textarea class="textarea form-control" name="message" id="form-message" cols="10" rows="9"></textarea>
+                    <textarea class="textarea form-control" name="desc" id="form-message" cols="10" rows="9">{{$role->desc}}</textarea>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-12 form-group">
                     <label></label>

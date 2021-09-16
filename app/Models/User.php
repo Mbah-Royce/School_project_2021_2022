@@ -26,7 +26,10 @@ class User extends Authenticatable
         'dob',
         'gender',
         'phone',
-        'profile_picture'
+        'profile_picture',
+        'current_address',
+        'state',
+        'status'
     ];
 
     /**
@@ -68,7 +71,7 @@ class User extends Authenticatable
 
     public function roles()
     {
-        return $this->belongsToMany(Role::class, 'role_user');
+        return $this->belongsToMany(Role::class, 'role_user')->withTimestamps();
     }
 
     public function student()
@@ -88,7 +91,17 @@ class User extends Authenticatable
         if($roles === null) {
           return $this;
         }
-        $this->roles()->saveMany($roles);
+        $this->roles()->attach($roles);
+        return $this;
+    }
+
+    public function revokeRoleTo(... $roles) {
+
+        $roles = $this->getAllRoles($roles);
+        if($roles === null) {
+          return $this;
+        }
+        $this->roles()->detach($roles);
         return $this;
     }
 

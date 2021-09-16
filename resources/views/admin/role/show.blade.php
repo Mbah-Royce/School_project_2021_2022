@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layout.admin')
 
 @section('content')
 <div class="card">
@@ -24,46 +24,45 @@
 </div>
 </div>
 
-
+<x-alert/>
 <div class="table-responsive">
     <table class="table v-middle">
         <thead>
             <tr class="bg-light">
-                <th class="border-top-0">ID</th>
+                <th class="border-top-0">User ID</th>
                 <th class="border-top-0">Name</th>
-                <th class="border-top-0">Created At</th>
-                <th class="border-top-0">Update At</th>
+                <th class="border-top-0">Granted At</th>
+                <th class="border-top-0">Updated At</th>
+                <th class="border-top-0">Action</th>
             </tr>
         </thead>
         <tbody id="myTable">
-            @foreach ($roles as $role)
+            @foreach ($role->users as $user)
                 
             <tr>
                 <td>
-                     {{$role->id}}          
+                     {{$user->id}}          
                 </td>
                 <td>
-                    {{$role->name}}  
+                    {{$user->first_name ." ". $user->last_name}}  
                 </td>
                 <td>
-                    {{$role->created_at}}  
+                    {{$user->pivot->created_at}}  
                 </td>
                 <td>
-                    {{$role->updated_at}}
+                    {{$user->pivot->updated_at}}
                 </td>
                 <td>
-                    <a class="btn btn-primary" href="{{route('role.show',$role->id)}}" role="button">view</a> 
-                    <a class="btn btn-secondary" href="{{route('role.edit',$role->id)}}" role="button">Edit</a>
                     <a class="btn btn-danger" href="" role="button"
 
                     onclick="event.preventDefault();
-                    if(confirm('Are you sure you really want to delete') )   {
-                    document.getElementById('form-delete-{{$role->id}}')
+                    if(confirm('Are you sure you really want to perfomr this action') )   {
+                    document.getElementById('form-delete-{{$user->id}}')
                     .submit()
-                    }">Delete</a>
-                    <form style="display:none" id="{{'form-delete-'.$role->id}}" method="post" action="{{route('role.destroy',$role->id)}}">
+                    }">Revoke</a>
+                    <form style="display:none" id="{{'form-delete-'.$user->id}}" method="post" action="{{route('role.revoke',$role->id)}}">
                         @csrf
-                        @method('delete')
+                        <input type="number" value="{{$user->id}}" name="user_id">
                         </form>
                 </td>
             </tr>

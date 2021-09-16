@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Role;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 
 class RoleController extends Controller
@@ -38,7 +39,7 @@ class RoleController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'role' => 'string|required',
+            'role' => 'string|required|unique:roles',
             'desc' => 'string'
         ]);
 
@@ -47,7 +48,7 @@ class RoleController extends Controller
             'desc' => $request->desc
         ]);
 
-        return redirect()->back()->with('message','Role Deleted Successfully');
+        return redirect()->back()->with('message','Role Created Successfully');
 
     }
 
@@ -59,7 +60,12 @@ class RoleController extends Controller
      */
     public function show($id)
     {
-        //
+        try{
+            $role = Role::findorfail($id);
+            return view('admin.role.show',compact('role'));
+        }catch(ModelNotFoundException $exception){
+
+        }
     }
 
     /**
@@ -70,7 +76,8 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $role = Role::findorfail($id);
+        return view('admin.role.edit',compact('role'));
     }
 
     /**
@@ -82,7 +89,19 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'role' => 'string|required',
+            'desc' => 'string|required'
+        ]);
+        $role = Role::findorfail($id);
+        $role->update([
+            'name' => $request->role,
+            'desc' => $request->desc
+        ]);
+        if($role->isClean('name') || $role->isClean('desc')){
+            return redirect()->back()->with('message','Role Updated Successfully');
+        }
+        return redirect()->back();
     }
 
     /**

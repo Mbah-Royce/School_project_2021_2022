@@ -26,7 +26,7 @@ class StudentRegisterRequest extends FormRequest
         return [
             'first_name' => 'required|max:255',
             'gender' => 'required',
-            'email' => 'required|string|email',
+            'email' => 'required|string|email|unique:users',
             'dob' => 'required|date',
             'phone' => 'required|numeric',
             'CurrAdd' => 'required|max:255',
