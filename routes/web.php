@@ -32,6 +32,7 @@ Route::get('/', function () {
 Route::get('/login',[LoginController::class,'create']);
 Route::post('/login',[LoginController::class,'store']);
 
+/****************** dash board routes ****************************/
 Route::view('/student/dashboard', 'student.dashboard');
 Route::view('/admin/dashboard', 'admin.dashboard');
 Route::view('/teacher/dashboard', 'teacher.dashboard');
@@ -39,6 +40,12 @@ Route::view('/parent/dashboard', 'parent.dashboard');
 
 Route::get('/mycourse/teacher/{id}',[CourseContentController::class,'mycourse']);
 
+
+/*************Student routes */
+Route::post('status/change/student/{id}',[StudentController::class,'block'])->name('student.status');
+/******************Teacher Routes **********/
+Route::post('status/change/teacher/{id}',[TeacherController::class,'block'])->name('teacher.status');
+/****************** Crud routes ***********************/
 Route::resource('student', StudentController::class);
 Route::resource('teacher', TeacherController::class);
 Route::resource('gaurdian',GaurdianController::class);
@@ -48,3 +55,5 @@ Route::resource('role', RoleController::class);
 Route::resource('permission', PermissionController::class);
 
 Route::post('/revoke/role/{id}',[AdminController::class,'revokeRole'])->name('role.revoke');
+
+

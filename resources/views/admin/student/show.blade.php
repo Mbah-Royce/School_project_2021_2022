@@ -55,6 +55,14 @@
                         <div class="col-xl-6 col-lg-6 col-12 ">
                             <p><b>Permanent Address :</b>{{$student->permanent_address}}</p>
                         </div>
+                        <div class="col-xl-6 col-lg-6 col-12 ">
+                            <h5><b>Roles :</b></h5>
+                        </div>
+                        @foreach ($student->user->roles as $role)
+                        <div class="col-xl-6 col-lg-6 col-12 ">
+                        <p><b></b>{{$role->name}}</p>
+                    </div>
+                    @endforeach
                         {{-- <div class="col-xl-6 col-lg-6 col-12 "> 
                             <p><b>Gaurdian First Name :</b>{{$student->gaurdian->user->first_name}}</p>
                         </div>

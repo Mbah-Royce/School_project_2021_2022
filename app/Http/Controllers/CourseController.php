@@ -16,7 +16,8 @@ class CourseController extends Controller
      */
     public function index()
     {
-        //
+        $courses = Course::all();
+        return view('admin.course.index',compact('courses'));
     }
 
     /**
@@ -82,7 +83,15 @@ class CourseController extends Controller
      */
     public function edit($id)
     {
-        //
+        $course = Course::findorfail($id);
+        $teachers = Teacher::get()->map(function($item){
+            $data = [
+                'id' => $item->id,
+                'name' => $item->user->first_name ." ".$item->user->last_name
+            ];return $data;
+        });
+        $classes = ClassRoom::select('id','name')->get();
+        return view('admin.course.edit',compact('course','classes','teachers'));
     }
 
     /**
@@ -94,7 +103,23 @@ class CourseController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'teacher_id' => 'required',
+            'class_room_id' => 'required',
+            'name' => 'required|string:max255',
+            'coef' => 'required|integer',
+            'duration' => 'required|integer',
+            ]);
+            $course = Course::findorfail($id);
+            $course->update([
+                'teacher_id' => $request->teacher_id,
+                'class_room_id' => $request->class_room_id,
+                'semester_id' => $request->semester_id,
+                'name' => $request->name,
+                'coef' => $request->coef,
+                'duration' => $request->duration,
+            ]);
+            return redirect()->back()->with('message','Course Updated Successfully');
     }
 
     /**
@@ -105,6 +130,7 @@ class CourseController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Course::findorfail($id)->delete();
+        return redirect()->back()->with('message','Deleted Successfuly');
     }
 }

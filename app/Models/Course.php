@@ -27,4 +27,9 @@ class Course extends Model
     {
         return $this->belongsTo(Teacher::class);
     }
+
+    public function semester()
+    {
+        return $this->belongsTo(Semester::class);
+    }
 }

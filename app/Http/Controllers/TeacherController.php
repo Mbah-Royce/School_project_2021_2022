@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\TeacherRegisterRequest;
+use App\Models\Teacher;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,8 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        //
+        $teachers = Teacher::all();
+        return view('admin.teacher.index',compact('teachers'));
     }
 
     /**
@@ -63,7 +65,8 @@ class TeacherController extends Controller
      */
     public function show($id)
     {
-        //
+        $teacher = Teacher::findorfail($id);
+        return view('admin.teacher.show',compact('teacher'));
     }
 
     /**
@@ -74,7 +77,8 @@ class TeacherController extends Controller
      */
     public function edit($id)
     {
-        //
+        $teacher = Teacher::findorfail($id);
+        return view('admin.teacher.edit',compact('teacher'));
     }
 
     /**
@@ -86,7 +90,29 @@ class TeacherController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $teacher = Teacher::findorfail($id);
+        $user = User::findorfail($teacher->user_id);
+        $user->update([
+            'email' => $request->email,
+            'password' => 'password',
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'dob' => $request->dob,
+            'gender' => $request->gender,
+            'phone' => $request->phone,
+            'profile_picture' => $request->profile_picture
+        ]);
+        $teacher->update([
+            'address' => $request->address,
+            'qualification' => $request->qualification,
+            'id_number' => $request->id_number
+        ]);
+        if($user->isDirty() || $teacher->isDirty()){
+            dd(true);
+            return redirect()->back()->with('message','Student Updated Successfully');
+        }
+        return redirect()->back();
+
     }
 
     /**
@@ -98,5 +124,22 @@ class TeacherController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function block($id)
+    {
+        $teacher = Teacher::findorfail($id);
+        if($teacher->user->status){
+            $teacher->user->update([
+                'status' => false
+            ]);
+            $message = "Account Blocked Succssfully";
+        }else{
+            $teacher->user->update([
+                'status' => true
+            ]);
+            $message = "Account Unblocked Succssfully";
+        }
+        return redirect()->back()->with('message',$message);
     }
 }

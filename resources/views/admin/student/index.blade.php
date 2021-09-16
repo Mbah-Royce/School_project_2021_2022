@@ -75,10 +75,15 @@
                     if(confirm('Are you sure you really want to delete') )   {
                     document.getElementById('form-delete-{{$student->id}}')
                     .submit()
-                    }">Block</a>
-                    <form style="display:none" id="{{'form-delete-'.$student->id}}" method="post" action="{{route('student.destroy',$student->id)}}">
+                    }">
+                    @if ($student->user->status)
+                       Block 
+                    @else
+                        Unblock
+                    @endif
+                    </a>
+                    <form method=post style="display:none" id="{{'form-delete-'.$student->id}}" method="post" action="{{route('student.status',$student->id)}}">
                         @csrf
-                        @method('delete')
                         </form>
                 </td>
             </tr>

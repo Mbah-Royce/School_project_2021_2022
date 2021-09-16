@@ -148,4 +148,21 @@ class StudentController extends Controller
     {
         //
     }
+
+    public function block($id)
+    {
+        $student = Student::findorfail($id);
+        if($student->user->status){
+            $student->user->update([
+                'status' => false
+            ]);
+            $message = "Account Blocked Succssfully";
+        }else{
+            $student->user->update([
+                'status' => true
+            ]);
+            $message = "Account Unblocked Succssfully";
+        }
+        return redirect()->back()->with('message',$message);
+    }
 }
