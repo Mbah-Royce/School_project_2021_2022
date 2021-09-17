@@ -15,7 +15,8 @@ class ClassRoomController extends Controller
      */
     public function index()
     {
-        //
+        $classRooms = ClassRoom::all();
+        return view('admin.classRoom.index',compact('classRooms'));
     }
 
     /**
@@ -66,7 +67,8 @@ class ClassRoomController extends Controller
      */
     public function edit($id)
     {
-        //
+        $classRoom = ClassRoom::findorfail($id);
+        return view('admin.classRoom.edit',compact('classRoom'));
     }
 
     /**
@@ -78,7 +80,16 @@ class ClassRoomController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required|string',
+            'capacity' => 'required|integer'
+        ]);
+        $classRoom = ClassRoom::findorfail($id);
+        $classRoom->update([
+            'name' => $request->name,
+            'capacity' => $request->capacity
+        ]);
+        return redirect()->back()->with('message','Class updated Successfully');
     }
 
     /**
@@ -89,6 +100,7 @@ class ClassRoomController extends Controller
      */
     public function destroy($id)
     {
-        //
+        ClassRoom::findorfail($id)->delete();
+        return redirect()->back()->with('message','Class Deleted Successfully');
     }
 }
