@@ -11,6 +11,7 @@ use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\TeacherDashboardController;
 use App\Models\Permission;
 use App\Models\Role;
 
@@ -34,17 +35,20 @@ Route::post('/login',[LoginController::class,'store']);
 
 /****************** dash board routes ****************************/
 Route::view('/student/dashboard', 'student.dashboard');
-Route::view('/admin/dashboard', 'admin.dashboard');
-Route::view('/teacher/dashboard', 'teacher.dashboard');
+Route::get('/admin/dashboard',[AdminController::class,'index']);
+Route::get('/teacher/dashboard',[TeacherDashboardController::class,'index']);
 Route::view('/parent/dashboard', 'parent.dashboard');
 
 Route::get('/mycourse/teacher/{id}',[CourseContentController::class,'mycourse']);
-
+Route::get('/content/upload/{id}',[CourseContentController::class,'create'])->name('content.create');
+Route::post('/content/upload',[CourseContentController::class,'store'])->name('content.store');
 
 /*************Student routes */
 Route::post('status/change/student/{id}',[StudentController::class,'block'])->name('student.status');
 /******************Teacher Routes **********/
 Route::post('status/change/teacher/{id}',[TeacherController::class,'block'])->name('teacher.status');
+/**********Admin Routes */
+Route::post('status/change/teacher/{id}',[AdminController::class,'block'])->name('user.status');
 /****************** Crud routes ***********************/
 Route::resource('student', StudentController::class);
 Route::resource('teacher', TeacherController::class);

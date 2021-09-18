@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Course;
+use App\Models\CourseContent;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
 
@@ -13,4 +15,33 @@ class CourseContentController extends Controller
         $courses = $teacher->course()->select('id','name','coef','duration')->get();
         return view('teacher.mycourse',compact('courses'));
     }
+
+    public function create($id)
+    {
+        return view('teacher.upload',compact('id'));
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'type' => 'required|string',
+            'file' => 'required|file|max:2048',
+            'course_id' => 'required'
+        ]);
+
+        if (!empty($request->file)) {
+            $path = "public/courses/" . $request->course_id ."/folder";
+            $storePath = imageUpload($path,$request->file);
+        }
+
+        $coures = Course::find($request->course_id)->content()->create([
+            'type' => $request->type,
+            'content_path' => $storePath,
+            'content_type' =>  $request->file->getMimeType(),
+        ]);
+      
+    }
+
+
+
 }

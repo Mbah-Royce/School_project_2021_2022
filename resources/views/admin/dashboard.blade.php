@@ -15,16 +15,16 @@
             <div class="row">
                 <div class="col-sm-3">
                     <div class="card">
-                        <div class="card-body">
+                        <div class="card-body" style="background-color:rgba(241, 241, 107, 0.507)">
                             <h5 class="card-title mb-4">
-                                sales
+                                Users
                             </h5>
-                            <h1 class="display-5 mt-1 mb-3">
-                                2.4543
+                            <h1 class="display-5 mt-1 mb-3" id="board1">
+                                
                             </h1>
                             <div class="mb-1">
-                                <span class="text-danger"><i class="mdi mdi-arrow-buttom-right"></i>346</span>
-                                <span class="text-muted">Since Last Week</span>
+                                <span class="text-danger"><i class="mdi mdi-arrow-buttom-right"></i></span>
+                                <span class="text-muted">Total Users</span>
                             </div>
                         </div>
                     </div>
@@ -32,16 +32,15 @@
             
                 <div class="col-sm-3">
                     <div class="card">
-                        <div class="card-body">
+                        <div class="card-body" style="background-color:rgba(93, 228, 238, 0.205)">
                             <h5 class="card-title mb-4">
-                                sales
+                                Students
                             </h5>
-                            <h1 class="display-5 mt-1 mb-3">
-                                2.4543
+                            <h1 class="display-5 mt-1 mb-3" id="board2">
                             </h1>
                             <div class="mb-1">
-                                <span class="text-danger"><i class="mdi mdi-arrow-buttom-right"></i>346</span>
-                                <span class="text-muted">Since Last Week</span>
+                                <span class="text-danger"><i class="mdi mdi-arrow-buttom-right"></i></span>
+                                <span class="text-muted">Total Students</span>
                             </div>
                         </div>
                     </div>
@@ -49,16 +48,15 @@
 
                 <div class="col-sm-3">
                     <div class="card">
-                        <div class="card-body">
+                        <div class="card-body" style="background-color:rgba(243, 119, 119, 0.295)">
                             <h5 class="card-title mb-4">
-                                sales
+                                Courses
                             </h5>
-                            <h1 class="display-5 mt-1 mb-3">
-                                2.4543
+                            <h1 class="display-5 mt-1 mb-3" id="board3">
                             </h1>
                             <div class="mb-1">
-                                <span class="text-danger"><i class="mdi mdi-arrow-buttom-right"></i>346</span>
-                                <span class="text-muted">Since Last Week</span>
+                                <span class="text-danger"><i class="mdi mdi-arrow-buttom-right"></i></span>
+                                <span class="text-muted">Total Courses</span>
                             </div>
                         </div>
                     </div>
@@ -66,16 +64,15 @@
 
                 <div class="col-sm-3">
                     <div class="card">
-                        <div class="card-body">
+                        <div class="card-body" style="background-color:rgba(140, 243, 140, 0.384)">
                             <h5 class="card-title mb-4">
-                                sales
+                                Classes Rooms
                             </h5>
-                            <h1 class="display-5 mt-1 mb-3">
-                                2.4543
+                            <h1 class="display-5 mt-1 mb-3" id="board4">
                             </h1>
                             <div class="mb-1">
-                                <span class="text-danger"><i class="mdi mdi-arrow-buttom-right"></i>346</span>
-                                <span class="text-muted">Since Last Week</span>
+                                <span class="text-danger"><i class="mdi mdi-arrow-buttom-right"></i></span>
+                                <span class="text-muted">Total classes</span>
                             </div>
                         </div>
                     </div>
@@ -86,16 +83,13 @@
                 <div class="col-sm-4">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title mb-4">
-                                sales
-                            </h5>
-                            <h1 class="display-5 mt-1 mb-3">
-                                2.4543
+                            <h1 class="display-5 mt-1 mb-3" >
+                                Users
                             </h1>
                             <canvas id="myChart" width="400" height="400"></canvas>
                             <div class="mb-1">
-                                <span class="text-danger"><i class="mdi mdi-arrow-buttom-right"></i>346</span>
-                                <span class="text-muted">Since Last Week</span>
+                                <span class="text-danger"><i class="mdi mdi-arrow-buttom-right"></i></span>
+                                <span class="text-muted">Plaform Users</span>
                             </div>
                         </div>
                     </div>
@@ -104,16 +98,13 @@
                 <div class="col-sm-4">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title mb-4">
-                                sales
-                            </h5>
                             <h1 class="display-5 mt-1 mb-3">
-                                2.4543
+                                Students
                             </h1>
                             <canvas id="myChart1" width="400" height="400"></canvas>
                             <div class="mb-1">
-                                <span class="text-danger"><i class="mdi mdi-arrow-buttom-right"></i>346</span>
-                                <span class="text-muted">Since Last Week</span>
+                                <span class="text-danger"><i class="mdi mdi-arrow-buttom-right"></i></span>
+                                <span class="text-muted">Total Students</span>
                             </div>
                         </div>
                     </div>
@@ -122,16 +113,13 @@
                 <div class="col-sm-4">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title mb-4">
-                                sales
-                            </h5>
                             <h1 class="display-5 mt-1 mb-3">
-                                2.4543
+                                Fields
                             </h1>
                             <canvas id="myChart2" width="400" height="400"></canvas>
                             <div class="mb-1">
-                                <span class="text-danger"><i class="mdi mdi-arrow-buttom-right"></i>346</span>
-                                <span class="text-muted">Since Last Week</span>
+                                <span class="text-danger"><i class="mdi mdi-arrow-buttom-right"></i></span>
+                                <span class="text-muted">Teacher</span>
                             </div>
                         </div>
                     </div>
@@ -144,20 +132,17 @@
                 <div class="card-body">
                     <div class="d-md-flex align-items-center">
                         <div>
-                    <h4 class="card-title">
-                        Top Sale
-                    </h4>
                     <h5 class="card-subtitle">
-                        over view
+                        User overview
                     </h5>
                         </div>
                     <div class="ml-auto">
                         <div class="dl">
                         <select class="custom-select">
-                            <option value="0" selected>Mothly</option>
-                            <option value="0">Weekly</option>
-                            <option value="0">daily</option>
-                            <option value="0">yearly</option>
+                            <option value="0" selected>All Users</option>
+                            <option value="0">Teachers</option>
+                            <option value="0">Students</option>
+                            <option value="0">Gaurdians</option>
                         </select>
                     </div>
                 </div>
@@ -168,17 +153,22 @@
             <table class="table v-middle">
                 <thead>
                     <tr class="bg-light">
-                        <th class="border-top-0">Product</th>
-                        <th class="border-top-0">License</th>
-                        <th class="border-top-0">support agent</th>
-                        <th class="border-top-0">Technology</th>
-                        <th class="border-top-0">Ticket</th>
-                        <th class="border-top-0">Sales</th>
-                        <th class="border-top-0">Earningsd</th>
+                        <th class="border-top-0">ID</th>
+                        <th class="border-top-0">Profile Pic</th>
+                        <th class="border-top-0">Fist Name</th>
+                        <th class="border-top-0">Last Name</th>
+                        <th class="border-top-0">Gender</th>
+                        <th class="border-top-0">Phone</th>
+                        <th class="border-top-0">Dob</th>
+                        <th class="border-top-0">Action</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($users as $user)
                     <tr>
+                        <td>
+                            {{$user->id}} 
+                         </td>
                         <td>
                             <div class="d-flex align-items-center">
                                 <div class="m-r-10">
@@ -192,154 +182,43 @@
                             </div>
                         </td>
                         <td>
-                           Single use 
+                           {{$user->first_name}} 
                         </td>
                         <td>
-                          John doe  
+                            {{$user->last_name}} 
                         </td>
                         <td>
-                           <label class="label label-danger">Angular</label> 
+                            {{$user->gender}} 
                         </td>
                         <td>
-                          46  
+                            {{$user->phone}}   
                         </td>
                         <td>
-                           356 
+                            {{$user->dob}} 
                         </td>
                         <td>
-                            <h4 class="m-b-0"></h4>
+                    <a class="btn btn-danger" href="" role="button"
+                    onclick="event.preventDefault();
+                    if(confirm('Are you sure you really want to delete') )   {
+                    document.getElementById('form-delete-{{$user->id}}')
+                    .submit()
+                    }">
+                    @if ($user->status)
+                       Block 
+                    @else
+                        Unblock
+                    @endif
+                    </a>
+                    <form method=post style="display:none" id="{{'form-delete-'.$user->id}}" method="post" action="{{route('user.status',$user->id)}}">
+                        @csrf
+                        </form>
                         </td>
                     </tr>
-                    <tr>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <div class="m-r-10">
-                                    <a class="btn btn-circle-info ">EA</a>       
-                                </div>
-                                <div>
-                                    <h4 class="m-b-0 font-16">
-                                        Elite Admin
-                                    </h4>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                           Single use 
-                        </td>
-                        <td>
-                          John doe  
-                        </td>
-                        <td>
-                           <label class="label label-danger">Angular</label> 
-                        </td>
-                        <td>
-                          46  
-                        </td>
-                        <td>
-                           356 
-                        </td>
-                        <td>
-                            <h4 class="m-b-0"></h4>
-                        </td>
-                    </tr> 
-                    <tr>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <div class="m-r-10">
-                                    <a class="btn btn-circle-info ">EA</a>       
-                                </div>
-                                <div>
-                                    <h4 class="m-b-0 font-16">
-                                        Elite Admin
-                                    </h4>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                           Single use 
-                        </td>
-                        <td>
-                          John doe  
-                        </td>
-                        <td>
-                           <label class="label label-danger">Angular</label> 
-                        </td>
-                        <td>
-                          46  
-                        </td>
-                        <td>
-                           356 
-                        </td>
-                        <td>
-                            <h4 class="m-b-0"></h4>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <div class="m-r-10">
-                                    <a class="btn btn-circle-info ">EA</a>       
-                                </div>
-                                <div>
-                                    <h4 class="m-b-0 font-16">
-                                        Elite Admin
-                                    </h4>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                           Single use 
-                        </td>
-                        <td>
-                          John doe  
-                        </td>
-                        <td>
-                           <label class="label label-danger">Angular</label> 
-                        </td>
-                        <td>
-                          46  
-                        </td>
-                        <td>
-                           356 
-                        </td>
-                        <td>
-                            <h4 class="m-b-0"></h4>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <div class="m-r-10">
-                                    <a class="btn btn-circle-info ">EA</a>       
-                                </div>
-                                <div>
-                                    <h4 class="m-b-0 font-16">
-                                        Elite Admin
-                                    </h4>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                           Single use 
-                        </td>
-                        <td>
-                          John doe  
-                        </td>
-                        <td>
-                           <label class="label label-danger">Angular</label> 
-                        </td>
-                        <td>
-                          46  
-                        </td>
-                        <td>
-                           356 
-                        </td>
-                        <td>
-                            <h4 class="m-b-0"></h4>
-                        </td>
-                    </tr>  
+                    <tr>  
+                    @endforeach
                 </tbody>
             </table>
+            {{ $users->links() }}
         </div>
             </div>
         </div>
@@ -350,22 +229,24 @@
 @endsection
 @push('child-jscripts')
 <script>
- xdata = [];
- getData()
     buildChart()
     buildChart1()
+    getCourseData()
+    getClassData()
     buildChart2()
-    buildChart3()
-     function buildChart(){
+    // buildChart3()
+  async function buildChart(){
+    stats = await getUserData();
+    console.log(stats);
+    var d1 = document.getElementById('board1').innerHTML = sum(stats)
     var ctx = document.getElementById('myChart');
-    console.log(xdata);
     var myChart = new Chart(ctx, {
         type: 'doughnut',
         data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            labels: ['Students', 'Teacher', 'Gaurdians'],
             datasets: [{
-                label: '# of Votes',
-                data: [25,56,23],
+                label: 'User Propotion',
+                data: stats,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -395,16 +276,18 @@
     });
     }
 
-    function buildChart1(){
+    async function buildChart1(){
+    stats = await getStudentData();
+    console.log(stats);
+    var d1 = document.getElementById('board2').innerHTML = sum(stats)
     var ctx1 = document.getElementById('myChart1');
-    console.log(xdata);
     var myChart1 = new Chart(ctx1, {
         type: 'bar',
         data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            labels: ['Male', 'Female'],
             datasets: [{
-                label: '# of Votes',
-                data: [25,56,23],
+                label: 'Sex Ratio',
+                data: stats,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -433,16 +316,18 @@
         }
     });
     }
-    function buildChart2(){
+async function buildChart2(){
+     stats = await getFeildData();
+     console.log(stats);
+    //  var d1 = document.getElementById('board2').innerHTML = sum(stats)
     var ctx1 = document.getElementById('myChart2');
-    console.log(xdata);
     var myChart1 = new Chart(ctx1, {
         type: 'pie',
         data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            labels: ['SE', 'GL', 'SR',],
             datasets: [{
-                label: '# of Votes',
-                data: [25,56,23],
+                label: 'Field stats',
+                data: stats,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -471,22 +356,75 @@
         }
     });
     }
-     function getData(params) {
-
-// Make a request for a user with a given ID
-axios.get('http://127.0.0.1:8000/api/v1/users')
-  .then(function (response) {
-    // handle success
-    xdata = response.data
-    // console.log(data);
+async function getUserData(params) {
+ let xdata = []
+await axios.get('http://127.0.0.1:8000/api/v1/users')
+  .then( (response)=> {
+    xdata = response.data.data
   })
   .catch(function (error) {
-    // handle error
-    console.log(error);
   })
-  .then(function () {
-    // always executed
-  });
+  return xdata
     }
+
+async function getStudentData(){
+    let xdata = []
+await axios.get('http://127.0.0.1:8000/api/v1/students')
+  .then( (response)=> {
+    xdata = response.data.data
+  })
+  .catch(function (error) {
+  })
+  return xdata
+}
+
+async function getCourseData(){
+    let xdata = []
+await axios.get('http://127.0.0.1:8000/api/v1/courses')
+  .then( (response)=> {
+    xdata = response.data.data
+  })
+  .catch(function (error) {
+  })
+  console.log(xdata)
+  var d1 = document.getElementById('board3').innerHTML = xdata
+}
+
+async function getClassData(){
+    let xdata = []
+await axios.get('http://127.0.0.1:8000/api/v1/class')
+  .then( (response)=> {
+    xdata = response.data.data
+  })
+  .catch(function (error) {
+  })
+  console.log(xdata)
+  var d1 = document.getElementById('board4').innerHTML = xdata
+}
+
+async function getFeildData(){
+    let xdata = []
+await axios.get('http://127.0.0.1:8000/api/v1/field')
+  .then( (response)=> {
+    xdata = response.data.data
+  })
+  .catch(function (error) {
+  })
+ return xdata
+}
+function sum(input) {
+  if (toString.call(input) !== "[object Array]")
+         return false;
+                      
+         var total = 0;
+            for(var i=0;i<input.length;i++) {                 
+                 if(isNaN(input[i])) {
+                   continue;
+                }
+                          
+        total += Number(input[i]);
+            }
+    return total;
+        }
     </script>
 @endpush

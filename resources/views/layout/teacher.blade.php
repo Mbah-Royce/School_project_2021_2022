@@ -423,7 +423,7 @@
             </div>
 
             <!---top bar search--->
-        <h2>{{auth()->user()->first_name ." " .auth()->user()->last_name}} </h2>
+        {{-- <h2>{{auth()->user()->first_name ." " .auth()->user()->last_name}} </h2> --}}
 
         <!---top nav bar-->
 

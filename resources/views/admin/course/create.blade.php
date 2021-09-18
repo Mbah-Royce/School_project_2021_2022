@@ -17,6 +17,10 @@
     color: white;
     border: 1px solid
 }
+    select{
+        overflow: auto;
+        background-color: red
+    }
 </style>
 @endsection
 @section('content')
@@ -60,7 +64,7 @@
                 </div>
                 <div class="col-xl-6 col-lg-6 col-12 form-group justify-content-center">
                     <label for="sel1">Teacher</label>
-                    <select class="form-control @error('teacher_id') is-invalid @enderror" id="sel2" name="teacher_id" required>
+                    <select size="3" class="form-control @error('teacher_id') is-invalid @enderror" id="sel2" name="teacher_id" required>
                         @foreach ($teachers as $teacher )
                             <option value= {{$teacher['id']}} >{{$teacher['name']}}</option>
 
