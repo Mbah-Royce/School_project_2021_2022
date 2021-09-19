@@ -47,6 +47,11 @@ Route::post('/content/upload',[CourseContentController::class,'store'])->name('c
 Route::post('status/change/student/{id}',[StudentController::class,'block'])->name('student.status');
 /******************Teacher Routes **********/
 Route::post('status/change/teacher/{id}',[TeacherController::class,'block'])->name('teacher.status');
+Route::get('content/show/{id}',[CourseContentController::class,'show'])->name('content.show');
+Route::delete('content/delete/{id}',[CourseContentController::class,'destroy'])->name('content.destroy');
+Route::get('content/download/{file}',[CourseContentController::class,'download'])->name('content.download');
+Route::get('content/view/{file}',[CourseContentController::class,'view'])->name('content.view');
+
 /**********Admin Routes */
 Route::post('status/change/teacher/{id}',[AdminController::class,'block'])->name('user.status');
 /****************** Crud routes ***********************/

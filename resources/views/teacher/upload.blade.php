@@ -39,6 +39,13 @@
                     @enderror
                 </div>
                 <div class="col-xl-6 col-lg-6 col-12 form-group">
+                    <label>Title *</label>
+                    <input type="text"  class="form-control @error('content') is-invalid @enderror" name="title">
+                    @error('title')
+                <p class="text-danger">{{ $message }}</p>
+                    @enderror
+                </div>
+                <div class="col-xl-6 col-lg-6 col-12 form-group">
                     
                     <label for="sel1">{{ __('Type *') }}</label>
                     <select class="form-control @error('type') is-invalid @enderror" id="sel1" name="type" required>

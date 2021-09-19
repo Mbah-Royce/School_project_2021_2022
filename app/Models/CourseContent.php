@@ -12,6 +12,7 @@ class CourseContent extends Model
     protected $fillable = [
         'type',
         'content_path',
-        'content_type' , 
+        'content_type',
+        'title' 
     ];
 }
