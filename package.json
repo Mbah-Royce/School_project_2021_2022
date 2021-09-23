@@ -7,7 +7,8 @@
         "watch-poll": "mix watch -- --watch-options-poll=1000",
         "hot": "mix watch --hot",
         "prod": "npm run production",
-        "production": "mix --production"
+        "production": "mix --production",
+        "devStart": "nodemon server.js"
     },
     "devDependencies": {
         "axios": "^0.21",
@@ -22,6 +23,12 @@
         "sass-loader": "^11.0.1"
     },
     "dependencies": {
-        "chart.js": "^3.5.1"
+        "chart.js": "^3.5.1",
+        "ejs": "^3.1.6",
+        "express": "^4.17.1",
+        "nodemon": "^2.0.12",
+        "peer": "^0.6.1",
+        "socket.io": "^4.2.0",
+        "uuid": "^8.3.2"
     }
 }

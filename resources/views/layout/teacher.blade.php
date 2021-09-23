@@ -86,7 +86,7 @@
             letter-spacing: 2px;
         }
         .navbar-nav li a:hover{
-            transform: scale(1.2);
+            transform: scale(1.1);
         }
         .submenu-box ul li a{
             padding: 4px 10px 4px 20px !important;
@@ -236,8 +236,8 @@
             color: #858796 !important;
         }
         .nav-link .img-profile{
-            height: 40px;
-            width: 40px;           
+            height: 60px;
+            width: 60px;           
         }
         .badge-counter{
             position: absolute;
@@ -401,7 +401,7 @@
                         <a class="nav-link" href="#">Profile</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#">Notificaitons</a>
+                        <a class="nav-link" href="#">Announcments</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="#">Settings</a>
@@ -423,7 +423,7 @@
             </div>
 
             <!---top bar search--->
-        {{-- <h2>{{auth()->user()->first_name ." " .auth()->user()->last_name}} </h2> --}}
+        <h2>{{auth()->user()->first_name ." " .auth()->user()->last_name}} </h2>
 
         <!---top nav bar-->
 
@@ -449,9 +449,15 @@
                 </a>
             </li>
             <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="userDropdown" role="button"
-                data-toggle="dropdown" href="">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin Royce</span>
-                    <img class="img-profile rounded-circle" src="{{asset('images/n.jpg')}}" alt="avatar"></a>
+                data-toggle="dropdown">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">AR</span>
+                    <img class="img-profile rounded-circle" src="{{asset('copy.jpg')}}" alt="avatar">
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  </ul>
             </li>
         </ul>
         </nav>

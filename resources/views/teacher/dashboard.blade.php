@@ -27,7 +27,7 @@
             <div class="row">
                 <div class="col-sm-3">
                     <div class="card">
-                        <div class="card-body">
+                        <div class="card-body" style="background-color:rgba(241, 241, 107, 0.507)">
                             <h5 class="card-title mb-4">
                                Today 
                             </h5>
@@ -47,7 +47,7 @@
             
                 <div class="col-sm-3">
                     <div class="card">
-                        <div class="card-body">
+                        <div class="card-body" style="background-color:rgba(93, 228, 238, 0.205)">
                             <h5 class="card-title mb-4">
                                 Messages
                             </h5>
@@ -64,7 +64,7 @@
 
                 <div class="col-sm-3">
                     <div class="card">
-                        <div class="card-body">
+                        <div class="card-body" style="background-color:rgba(243, 119, 119, 0.295)">
                             <h5 class="card-title mb-4">
                                 Assignment
                             </h5>
@@ -81,9 +81,9 @@
 
                 <div class="col-sm-3">
                     <div class="card">
-                        <div class="card-body">
+                        <div class="card-body" style="background-color:rgba(140, 243, 140, 0.384)">
                             <h5 class="card-title mb-4">
-                                Notifications
+                                Announcments
                             </h5>
                             <h1 class="display-5 mt-1 mb-3">
                                 2

@@ -37,4 +37,9 @@ class Course extends Model
     {
         return $this->hasMany(CourseContent::class);
     }
+
+    public function courseResults()
+    {
+        return $this->hasMany(CourseResult::class);
+    }
 }

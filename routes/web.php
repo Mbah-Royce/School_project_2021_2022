@@ -14,6 +14,7 @@ use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\TeacherDashboardController;
 use App\Models\Permission;
 use App\Models\Role;
+use App\Models\CourseContent;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,11 +27,10 @@ use App\Models\Role;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/login',[LoginController::class,'create']);
+Route::view('/', 'welcome')->name('home');
+Route::view('/service', 'services')->name('service');
+Route::view('/contact', 'contact')->name('contact');
+Route::get('/login',[LoginController::class,'create'])->name('login');
 Route::post('/login',[LoginController::class,'store']);
 
 /****************** dash board routes ****************************/
@@ -42,6 +42,9 @@ Route::view('/parent/dashboard', 'parent.dashboard');
 Route::get('/mycourse/teacher/{id}',[CourseContentController::class,'mycourse']);
 Route::get('/content/upload/{id}',[CourseContentController::class,'create'])->name('content.create');
 Route::post('/content/upload',[CourseContentController::class,'store'])->name('content.store');
+Route::get('/result/upload{id}',[CourseContentController::class,'createResult'])->name('result.create');
+Route::post('/result/upload',[CourseContentController::class,'ResultStore'])->name('result.store');
+Route::get('/content/upload/ass/{id}',[CourseContentController::class,'ass'])->name('content.ass');
 
 /*************Student routes */
 Route::post('status/change/student/{id}',[StudentController::class,'block'])->name('student.status');
@@ -49,7 +52,7 @@ Route::post('status/change/student/{id}',[StudentController::class,'block'])->na
 Route::post('status/change/teacher/{id}',[TeacherController::class,'block'])->name('teacher.status');
 Route::get('content/show/{id}',[CourseContentController::class,'show'])->name('content.show');
 Route::delete('content/delete/{id}',[CourseContentController::class,'destroy'])->name('content.destroy');
-Route::get('content/download/{file}',[CourseContentController::class,'download'])->name('content.download');
+Route::get('content/download/{id}',[CourseContentController::class,'downlaodFile'])->name('content');
 Route::get('content/view/{file}',[CourseContentController::class,'view'])->name('content.view');
 
 /**********Admin Routes */

@@ -23,6 +23,7 @@ li a {
 @section('content')
 @if ($contents->count() > 0)
 <div class="container">
+    <x-alert/>
     <div class="row">
     @foreach ($contents as $content)
     <div class="col-md-2">
@@ -41,14 +42,14 @@ li a {
                             @method('delete')
                             </form>
                             <?php $path = "http://127.0.0.1:8000".$content->content_path ?>
-                        <li><a href="{{route('content.download',$content->content_path)}}">Download</a></li>
+                        <li><a href="{{route('content',$content->id)}}">Download</a></li>
                         <li><a href="{{$path}}" target=_blank >View</a></li>
                 </ul>
               </div>
           <a href="/w3images/lights.jpg" target="_blank">
             <i class="fa fa-folder fa-5x" aria-hidden="true"></i>
            <div class="caption">
-               <p>{{$content->name}}</p>
+               <p>{{$content->title}}</p>
               <p>{{$content->type}}</p>
             </div>
           </a>
