@@ -1,4 +1,4 @@
-@extends('layout.teacher')
+@extends('layout.'."$role")
 
 @section('style')
 <style>
@@ -32,11 +32,19 @@ li a {
                     <i class="fas fa-ellipsis-v " data-toggle="dropdown"></i>
                 <span class="caret"></span></button>
                 <ul class="dropdown-menu">
-                  <li class="del" onclick="event.preventDefault();
+                    @if ($user->can('edit-course') || auth()->user()->hasRole('admin'))
+                    {{-- @if (auth()->user()->hasRole('teacher')) --}}
+                    <li class="del" onclick="event.preventDefault();
+                    if(confirm('Are you sure you really want to delete') )   {
+                    document.getElementById('form-delete-{{$content->id}}')
+                    .submit()
+                    }">Delete</li>
+                    @endif
+                  {{-- <li class="del" onclick="event.preventDefault();
                         if(confirm('Are you sure you really want to delete') )   {
                         document.getElementById('form-delete-{{$content->id}}')
                         .submit()
-                        }">Delete</li>
+                        }">Delete</li> --}}
                         <form style="display:none" id="{{'form-delete-'.$content->id}}" method="post" action="{{route('content.destroy',$content->id)}}">
                             @csrf
                             @method('delete')

@@ -82,3 +82,10 @@ Route::get('/field',function(){
     $data['data'] = [count($SE),count($GL),count($SR)];
     return response()->json($data); 
 });
+
+Route::get('/user/data/{id}',function($id){
+    $user = User::find($id);
+    $name = $user->first_name." ".$user->last_name;
+    $data['data'] = [$name];
+    return response()->json($data); 
+});

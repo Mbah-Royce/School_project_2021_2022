@@ -64,7 +64,7 @@
                     {{$course->created_at}}
                 </td>
                 <td>
-                    <a class="btn btn-primary" href="{{route('course.show',$course->id)}}" role="button">view</a> 
+                    <a class="btn btn-primary" href="{{route('content.show',$course->id)}}" role="button">view content</a> 
                     <a class="btn btn-secondary" href="{{route('course.edit',$course->id)}}" role="button">Edit</a>
                     <a class="btn btn-danger" href="" role="button"
 

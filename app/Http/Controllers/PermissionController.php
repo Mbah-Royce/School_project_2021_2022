@@ -15,7 +15,7 @@ class PermissionController extends Controller
      */
     public function index()
     {
-        $permissions = Permission::take(10)->get();
+        $permissions = Permission::paginate(10);
         return view('admin.permission.index',compact('permissions'));
     }
 
@@ -60,7 +60,7 @@ class PermissionController extends Controller
      */
     public function show($id)
     {
-        $permssions = Permission::findorfail($id);
+        $permissions = Permission::findorfail($id);
         return view('admin.permission.show',compact('permissions'));
     }
 

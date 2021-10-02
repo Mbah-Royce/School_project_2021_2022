@@ -115,7 +115,7 @@ class User extends Authenticatable
     {
 
         foreach ($roles as $role) {
-            if ($this->roles->contains('slug', $role)) {
+            if ($this->roles->contains('name', $role)) {
                 return true;
             }
         }
@@ -137,4 +137,9 @@ class User extends Authenticatable
     {
         return Permission::whereIn('slug', $permissions)->get();
     }
+
+    public function hasPermissionTo($permission) {
+
+        return $this->hasPermissionThroughRole($permission);
+      }
 }

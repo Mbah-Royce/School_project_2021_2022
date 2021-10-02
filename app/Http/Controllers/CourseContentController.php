@@ -8,6 +8,8 @@ use App\Models\CourseResult;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
+
 
 class CourseContentController extends Controller
 {
@@ -58,8 +60,10 @@ class CourseContentController extends Controller
 
     public function show($id)
     {
+        $role = session('role');
+        $user = Auth::user();
         $contents = CourseContent::where('course_id',$id)->get();
-        return view('teacher.course_content',compact('contents'));
+        return view('teacher.course_content',compact('contents','user','role'));
     }
 
     public function destroy($id)

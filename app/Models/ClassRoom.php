@@ -23,4 +23,9 @@ class ClassRoom extends Model
     {
         return $this->hasMany(Course::class);
     }
+
+    public function timeTable()
+    {
+        return $this->hasMany(Timetable::class);
+    }
 }

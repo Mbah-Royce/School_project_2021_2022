@@ -16,7 +16,7 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        $teachers = Teacher::all();
+        $teachers = Teacher::paginate(10);
         return view('admin.teacher.index',compact('teachers'));
     }
 
@@ -107,11 +107,11 @@ class TeacherController extends Controller
             'qualification' => $request->qualification,
             'id_number' => $request->id_number
         ]);
-        if($user->isDirty() || $teacher->isDirty()){
-            dd(true);
-            return redirect()->back()->with('message','Student Updated Successfully');
-        }
-        return redirect()->back();
+        // if($user->isDirty() || $teacher->isDirty()){
+        //     dd(true);
+        //     return redirect()->back()->with('message','Teacher Updated Successfully');
+        // }
+        return redirect()->back()->with('message','Teacher Updated Successfully');
 
     }
 

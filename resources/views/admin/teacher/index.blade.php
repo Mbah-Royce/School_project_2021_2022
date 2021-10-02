@@ -82,7 +82,7 @@
                         Unblock
                     @endif
                     </a>
-                    <form method=post style="display:none" id="{{'form-delete-'.$teacher->id}}" method="post" action="{{route('teacher.status',$teacher->id)}}">
+                    <form method=post style="display:none" id="{{'form-delete-'.$teacher->id}}" action="{{route('teacher.status',$teacher->id)}}">
                         @csrf
                         </form>
                 </td>
@@ -91,6 +91,7 @@
 
         </tbody>
     </table>
+    {{ $teachers->links() }}
 </div>
 </div>
 

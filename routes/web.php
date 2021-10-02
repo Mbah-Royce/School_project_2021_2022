@@ -7,14 +7,15 @@ use App\Http\Controllers\ClassRoomController;
 use App\Http\Controllers\CourseContentController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\GaurdianController;
+use App\Http\Controllers\LiveClassController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\TeacherDashboardController;
-use App\Models\Permission;
-use App\Models\Role;
-use App\Models\CourseContent;
+use App\Http\Controllers\TimetableController;
+use App\Http\Controllers\TimeTableManagement;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +35,7 @@ Route::get('/login',[LoginController::class,'create'])->name('login');
 Route::post('/login',[LoginController::class,'store']);
 
 /****************** dash board routes ****************************/
-Route::view('/student/dashboard', 'student.dashboard');
+Route::get('/student/dashboard',[StudentController::class,'displayDashboard']);
 Route::get('/admin/dashboard',[AdminController::class,'index']);
 Route::get('/teacher/dashboard',[TeacherDashboardController::class,'index']);
 Route::view('/parent/dashboard', 'parent.dashboard');
@@ -48,8 +49,9 @@ Route::get('/content/upload/ass/{id}',[CourseContentController::class,'ass'])->n
 
 /*************Student routes */
 Route::post('status/change/student/{id}',[StudentController::class,'block'])->name('student.status');
+Route::get('student/timetable',[TimetableController::class,'studentTable'])->name('student.table');
 /******************Teacher Routes **********/
-Route::post('status/change/teacher/{id}',[TeacherController::class,'block'])->name('teacher.status');
+Route::post('change/teacher/{id}',[TeacherController::class,'block'])->name('teacher.status');
 Route::get('content/show/{id}',[CourseContentController::class,'show'])->name('content.show');
 Route::delete('content/delete/{id}',[CourseContentController::class,'destroy'])->name('content.destroy');
 Route::get('content/download/{id}',[CourseContentController::class,'downlaodFile'])->name('content');
@@ -67,5 +69,14 @@ Route::resource('role', RoleController::class);
 Route::resource('permission', PermissionController::class);
 
 Route::post('/revoke/role/{id}',[AdminController::class,'revokeRole'])->name('role.revoke');
+Route::get('/start/class',[LiveClassController::class,'startClass']);
+
+Route::get('table',[TimetableController::class,'create'])->name('table.create');
+Route::get('table/all',[TimetableController::class,'index'])->name('table.index');
+Route::post('table',[TimetableController::class,'store'])->name('table.store');
+Route::get('timetable',[TimeTableManagement::class,'create'])->name('timetable.create');
+Route::post('timetable',[TimeTableManagement::class,'store'])->name('timetable.store');
+Route::get('timetable/show/{id}',[TimeTableManagement::class,'show'])->name('timetable.show');
+
 
 

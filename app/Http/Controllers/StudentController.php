@@ -22,7 +22,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $students = Student::all();
+        $students = Student::paginate(10);
         return view('admin.student.index',compact('students'));
     }
 
@@ -164,5 +164,12 @@ class StudentController extends Controller
             $message = "Account Unblocked Succssfully";
         }
         return redirect()->back()->with('message',$message);
+    }
+
+    public function displayDashboard()
+    {
+        $student = Student::where('user_id',auth()->user()->id)->first();
+        $courses = $student->classRoom->courses()->select('id','name','coef','duration')->get();
+        return view('student.dashboard',compact('courses','student'));
     }
 }

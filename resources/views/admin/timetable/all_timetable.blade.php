@@ -6,7 +6,7 @@
         <div class="d-md-flex align-items-center">
             <div>
         <h4 class="card-title">
-            Role Listing
+            All Timetable
         </h4>
         <h5 class="card-subtitle">  
         </h5>
@@ -14,9 +14,9 @@
 
             <div class="col-md-12 mt-lg-4 mt-4">
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <a href="{{route('permission.create')}}" class="d-none d-sm-inline-block btn-sm btn-primary shadow-sm">
+                    <a href="{{route('timetable.create')}}" class="d-none d-sm-inline-block btn-sm btn-primary shadow-sm">
                         <i class="fas fa-download fa-sm text-gray-50"></i>
-                        Add Role</a>
+                        Add Timetable</a>
                 </div>
                 <input class="form-control" id="myInput" type="text" style="width:300px;"placeholder="Search..">
                 <x-alert/>
@@ -30,54 +30,55 @@
         <thead>
             <tr class="bg-light">
                 <th class="border-top-0">ID</th>
-                <th class="border-top-0">Name</th>
-                <th class="border-top-0">Role</th>
-                <th class="border-top-0">Created At</th>
-                <th class="border-top-0">Update At</th>
-                <th class="border-top-0">Actions</th>
+                <th class="border-top-0">Class</th>
+                <th class="border-top-0">Created_at</th>
+                <th class="border-top-0">Updated_at</th>
+                <th class="border-top-0">Week</th>
+                <th class="border-top-0">Action</th>
+
             </tr>
         </thead>
         <tbody id="myTable">
-            @foreach ($permissions as $permission)
-             <tr>
+            @foreach ($timetables as $timetable)
+            <tr>
                 <td>
-                     {{$permission->id}}          
+                    {{$timetable->id}}
                 </td>
                 <td>
-                    {{$permission->name}}  
-                </td>
-                <?php $name = $permission->roles()->select('name')->get() ?>
-                <td>
-                   @foreach ($name as $nam)
-                       {{$nam->name}}
-                   @endforeach  
+                    {{$timetable->classRoom->name}}
                 </td>
                 <td>
-                    {{$permission->created_at}}  
+                    {{$timetable->created_at}}
                 </td>
                 <td>
-                    {{$permission->updated_at}}
+                    {{$timetable->updated_at}}
                 </td>
-               <td>
-                    <a class="btn btn-primary" href="{{route('permission.show',$permission->id)}}" role="button">view</a> 
-                    <a class="btn btn-secondary" href="{{route('permission.edit',$permission->id)}}" role="button">Edit</a>
+                <td>
+                    {{$timetable->week_number}}
+                </td>
+                <td>
+                    <a class="btn btn-primary" href="{{route('timetable.show',$timetable->id)}}" role="button">view</a> 
+                    <a class="btn btn-secondary" href="" role="button">Edit</a>
                     <a class="btn btn-danger" href="" role="button"
 
                     onclick="event.preventDefault();
                     if(confirm('Are you sure you really want to delete') )   {
-                    document.getElementById('form-delete-{{$permission->id}}')
+                    document.getElementById('form-delete-{{$timetable->id}}')
                     .submit()
-                    }">Delete</a>
-                    <form style="display:none" id="{{'form-delete-'.$permission->id}}" method="post" action="{{route('permission.destroy',$permission->id)}}">
+                    }">
+                    Delete
+                    </a>
+                    <form method=post style="display:none" id="{{'form-delete-'.$timetable->id}}" method="post" action="">
                         @csrf
                         @method('delete')
                         </form>
                 </td>
             </tr>
             @endforeach
+
         </tbody>
     </table>
-    {{ $permissions->links() }}
+    {{ $timetables->links() }}
 </div>
 </div>
 

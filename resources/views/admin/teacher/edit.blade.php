@@ -3,9 +3,9 @@
 @section('content')
     
 <div class="card height-auto">
+    <x-alert/>
     <div class="card-body">
         <h5 class="card-title">Teacher Edit Form</h5>
-        <x-alert/>
         <form method="POST" action="{{route('teacher.update',$teacher->id)}}" method="POST">
             @csrf
             @method('patch')

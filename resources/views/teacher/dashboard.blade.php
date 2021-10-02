@@ -122,6 +122,7 @@
                 </div>
             </div>
         </div>
+        <input class="form-control" id="myInput" type="text" style="width:300px;"placeholder="Search..">
         <div class="table-responsive">
             <table class="table v-middle">
                 <thead>

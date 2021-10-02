@@ -30,12 +30,15 @@ class LoginController extends Controller
         if(Count($roles) >=2){
             return View('auth.chooseRole',compact('roles'));
         }
+        session(['role' => $roles['0']['name']]);
         return redirect("/".$roles['0']['name'].'/dashboard');
     }
 
     public function delete(Request $request)
     {
         Auth::guard('web')->logout();
+
+        $request->session()->forget('role');
 
         $request->session()->invalidate();
 

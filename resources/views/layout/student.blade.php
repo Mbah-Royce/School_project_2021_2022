@@ -10,15 +10,15 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
+    <script src="{{ asset('js/app.js') }}" defer></script>
     @stack('child-scripts')
 
     <!-- Fonts -->
-    {{-- <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <script src="https://kit.fontawesome.com/c441c0bd75.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" 
-    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous"> --}}
+    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
 
     <!-- Styles -->
@@ -383,7 +383,7 @@
                         <a class="nav-link" href="#">Dashboard</a>
                       </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">My Courses</a>
+                        <a class="nav-link" href="">My Courses</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="#">Assignment</a>
@@ -392,7 +392,7 @@
                         <a class="nav-link" href="#">Messages</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#">Timetable</a>
+                        <a class="nav-link" href="{{route('student.table')}}">Timetable</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="#">Results</a>
@@ -420,7 +420,7 @@
             </div>
 
             <!---top bar search--->
-        {{-- <h2>{{auth()->user()->first_name ." " .auth()->user()->last_name}} </h2> --}}
+        <h2>{{auth()->user()->first_name ." " .auth()->user()->last_name}} </h2>
 
         <!---top nav bar-->
 
