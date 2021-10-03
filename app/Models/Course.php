@@ -47,4 +47,9 @@ class Course extends Model
     {
         return $this->belongsToMany(Timetable::class,'course_timetable')->withPivot('start_time', 'end_time','status','days')->withTimestamps();
     }
+
+    public function liveClass()
+    {
+        return $this->hasOne(LiveClass::class);
+    }
 }

@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+    public function __construct(){
+        $this->middleware('password.changed');
+    }
+    
     public function index()
     {
         $users = User::paginate(5);

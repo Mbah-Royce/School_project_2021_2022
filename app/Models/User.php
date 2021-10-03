@@ -29,7 +29,8 @@ class User extends Authenticatable
         'profile_picture',
         'current_address',
         'state',
-        'status'
+        'status',
+        'is_changed'
     ];
 
     /**

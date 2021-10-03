@@ -10,11 +10,14 @@ use App\Models\ClassRoom;
 use App\Models\Field;
 use App\Models\Student;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 
 class StudentController extends Controller
 {
+    public function __construct(){
+        $this->middleware('password.changed');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -47,9 +50,11 @@ class StudentController extends Controller
      */
     public function store(StudentRegisterRequest $request)
     {
+        $password = Str::random(12);
+
         $user = User::create([
             'email' => $request->email,
-            'password' => 'password',
+            'password' => $password,
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'dob' => $request->dob,
@@ -69,6 +74,7 @@ class StudentController extends Controller
             'permanent_address' => $request->perm_add,
             'current_address' => $request->cur_add
         ]);
+        sendPassword($request->email,$password);
         return redirect()->back()->with('message','Student successfully created');
     }
 

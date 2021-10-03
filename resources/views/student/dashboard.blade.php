@@ -153,7 +153,7 @@
                        <td>
                             <a class="btn btn-primary" href={{route('content.create',$course->id)}} role="button">Upload Assignment</a> 
                             <a class="btn btn-secondary" href={{route('content.show',$course->id)}}  role="button">View Content</a>
-                            <a class="btn btn-danger white" role="button">Join Class</a>
+                            <a class="btn btn-danger white" href={{route('student.join',$course->id)}} role="button">Join Class</a>
         
                         </td>
                     </tr>

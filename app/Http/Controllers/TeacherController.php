@@ -6,9 +6,15 @@ use App\Http\Requests\TeacherRegisterRequest;
 use App\Models\Teacher;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+
 
 class TeacherController extends Controller
 {
+    public function __construct(){
+        $this->middleware('password.changed');
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -38,9 +44,11 @@ class TeacherController extends Controller
      */
     public function store(TeacherRegisterRequest $request)
     {
+        $password = Str::random(12);
+
         $user = User::create([
             'email' => $request->email,
-            'password' => 'password',
+            'password' => $password,
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'dob' => $request->dob,
@@ -54,6 +62,7 @@ class TeacherController extends Controller
             'qualification' => $request->qualification,
             'id_number' => $request->id_number
         ]);
+        sendPassword($request->email,$password);
         return redirect()->back()->with('message','Teacher successfully created');
     }
 

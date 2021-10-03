@@ -1,6 +1,10 @@
 <?php
+
+use App\Mail\PasswordReset;
+use App\Mail\SendPassword;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Mail;
 
 
 function imageUpload($path, $file)
@@ -22,4 +26,16 @@ function deleteMedia($path)
     }
     Storage::delete($path);
     return true;
+}
+
+function sendResetLink($email, $token)
+{
+    Mail::to($email)->send(new PasswordReset($token));
+    return (Mail::failures());
+}
+
+function sendPassword($email, $password)
+{
+    Mail::to($email)->send(new SendPassword($password));
+    return (Mail::failures());
 }

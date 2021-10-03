@@ -46,9 +46,10 @@
             border: 1px solid
         }
         .test{
-            background: rgb(245, 239, 239) url('images/link.jpg');
+            /* background: rgb(245, 239, 239) url('images/link.jpg'); */
             background-position: center;
-            background-size: cover; 
+            background-size: cover;
+            margin-top: 50px; 
         }
         h1{
             padding-top: 20px;
@@ -62,13 +63,15 @@
         <div class="container">
             <div class="row justify-content-center no-gutters">
                 <div class="test col-lg-7 text-center ">
-                    <h1 class="font-weight-bold text-center">Ensuring Connectivity</h1>
-                    <h1 class="font-weight-bold text-center">Keeping you connected</h1>
+                    <h5 class="font-weight-bold text-center">
+                        Forgot your password? No problem. 
+                        Just let us know your email address and we will email you a password reset link 
+                        that will allow you to choose a new one.</h5>
                 </div>
                 <div class=" col-lg-5 px-5 pt-3">
-                    <h1 class="font-weight-bold py-3 text-center">Welcome Back</h1>
-                    <h4 class="text-center">Sign into your account</h4>
-                    <form method="POST" action="/login">
+                    <h1 class="font-weight-bold py-3 text-center">AICS CAMEROON</h1>
+                    <h4 class="text-center">Input your recovery email</h4>
+                    <form method="POST" action="{{route('forget.password.post')}}">
                         @csrf
                         <x-alert/>
                         <div class="form-row justify-content-center">
@@ -83,20 +86,9 @@
                         </div>
                         <div class="form-row justify-content-center">
                             <div class="col-lg-9">
-                                <input type="password" placeholder="Password" name="password" class="form-control my-3 p-3 pr-8 @error('password') is-invalid @enderror" required  autofocus>
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <button  type="submit" class="btn1 mt-3 mb-4">Submit</button>
                             </div>
                         </div>
-                        <div class="form-row justify-content-center">
-                            <div class="col-lg-9">
-                                <button  type="submit" class="btn1 mt-3 mb-4">Login</button>
-                            </div>
-                        </div>
-                        <a href="{{route('forget.password.get')}}" class="text-center">Forgot Password?</a>
                     </form>
                 </div>
             </div>
