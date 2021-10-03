@@ -48,7 +48,7 @@ Route::post('/setpass',[LoginController::class,'setPass'])->name('setPass-post')
 Route::get('/student/dashboard',[StudentController::class,'displayDashboard'])->middleware('password.changed');
 Route::get('/admin/dashboard',[AdminController::class,'index'])->middleware('password.changed');
 Route::get('/teacher/dashboard',[TeacherDashboardController::class,'index'])->middleware('password.changed');
-Route::view('/parent/dashboard', 'parent.dashboard')->middleware('password.changed');
+Route::get('guardian/dashboard',[GaurdianController::class,'displayDashboard'])->middleware('password.changed');
 
 Route::get('/mycourse/teacher/{id}',[CourseContentController::class,'mycourse']);
 Route::get('/content/upload/{id}',[CourseContentController::class,'create'])->name('content.create');

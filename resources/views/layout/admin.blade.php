@@ -429,7 +429,7 @@
         <nav class="fixed-top align-top" id="sidebar-wrapper" role="navigation">
             <div class="simplebar-content" style="padding: 0px;">
                 <a class="sidebar-brand" href="#">
-                    <span class="align-middle">Vishweb design</span></a>
+                    <span class="align-middle">Menu</span></a>
                 <ul class="navbar-nav align-self-stretch">
                     <li class="sidebar-header">Pages</li>
                     <li><a class="nav-link text-left active" role="button"><i class="fas fa-bars"></i>
@@ -726,7 +726,7 @@
                                 <div class="col-6 text-left">
                                     <p class="md-0">
                                         <a href="#" class="muted">
-                                            <strong>Dashboard Vishweb design</strong>
+                                            <strong style="color:rgb(10, 48, 10)">AICS</strong>
                                         </a>
                                     </p>
                                 </div>

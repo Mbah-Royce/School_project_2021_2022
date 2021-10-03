@@ -382,12 +382,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Dashboard</a>
                       </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="">My Courses</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">Assignment</a>
-                      </li>
                       <li class="nav-item">
                         <a class="nav-link" href="#">Messages</a>
                       </li>

@@ -37,6 +37,7 @@
                 <th class="border-top-0">Phone</th>
                 <th class="border-top-0">Profession</th>
                 <th class="border-top-0">Address</th>
+                <th class="border-top-0">No Student</th>
             </tr>
         </thead>
         <tbody id="myTable">
@@ -67,6 +68,9 @@
                     {{$gaurdian->address}}
                 </td>
                 <td>
+                    {{$gaurdian->student->count()}}
+                </td>
+                <td>
                     <a class="btn btn-primary" href="{{route('gaurdian.show',$gaurdian->id)}}" role="button">view</a> 
                     <a class="btn btn-secondary" href="{{route('gaurdian.edit',$gaurdian->id)}}" role="button">Edit</a>
                     <a class="btn btn-danger" href="" role="button"
@@ -82,7 +86,7 @@
                         Unblock
                     @endif
                     </a>
-                    <form method=post style="display:none" id="{{'form-delete-'.$gaurdian->id}}" method="post" action="{{route('gaurdian.status',$gaurdian->id)}}">
+                    <form method=post style="display:none" id="{{'form-delete-'.$gaurdian->id}}" method="post" action="{{route('user.status',$gaurdian->user->id)}}">
                         @csrf
                         </form>
                 </td>

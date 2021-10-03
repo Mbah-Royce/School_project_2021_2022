@@ -84,6 +84,11 @@ class User extends Authenticatable
     {
         return $this->hasMany(Teacher::class);
     }
+
+    public function gaurdian()
+    {
+        return $this->hasMany(gaurdian::class);
+    }
 /************************** user methods ******************************/
 
     public function giveRoleTo(... $roles) {

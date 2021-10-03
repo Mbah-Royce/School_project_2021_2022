@@ -19,6 +19,13 @@
                             @enderror
                         </div>
                         <div class="col-xl-6 col-lg-6 col-12 form-group">
+                            <label>{{ __('Student ID*') }}</label>
+                            <input type="text" placeholder="id" class="form-control air-datepicker @error('student_id') is-invalid @enderror" data-position="bottom right"name="student_id" required>
+                            @error('student_id')
+                        <p class="text-danger">{{ $message }}</p>
+                            @enderror
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-12 form-group">
                             <label> {{ __('Id Card Number*') }}</label>
                             <input type="text" placeholder="" class="form-control @error('id_number') is-invalid @enderror" name="id_number" required>
                             @error('id_number')
@@ -52,7 +59,7 @@
                 <p class="text-danger">{{ $message }}</p>
                     @enderror
                 </div>
-            
+                
                 <div class="col-xl-6 col-lg-6 col-12 form-group">
                     <label>{{ __('Date Of Birth *') }}</label>
                     <input type="date" placeholder="dd/mm/yyyy" class="form-control air-datepicker @error('dob') is-invalid @enderror" data-position="bottom right"name="dob" required>
