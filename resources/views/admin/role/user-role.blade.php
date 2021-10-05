@@ -13,11 +13,11 @@
             </div>
 
             <div class="col-md-12 mt-lg-4 mt-4">
-                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                {{-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <a href="{{route('role.create')}}" class="d-none d-sm-inline-block btn-sm btn-primary shadow-sm">
                         <i class="fas fa-download fa-sm text-gray-50"></i>
                         Add Role</a>
-                </div>
+                </div> --}}
                 <input class="form-control" id="myInput" type="text" style="width:300px;"placeholder="Search..">
                 <x-alert/>
             </div>
@@ -30,42 +30,49 @@
         <thead>
             <tr class="bg-light">
                 <th class="border-top-0">ID</th>
-                <th class="border-top-0">Name</th>
+                <th class="border-top-0">First Name</th>
+                <th class="border-top-0">Last Name</th>
                 <th class="border-top-0">Created At</th>
                 <th class="border-top-0">Update At</th>
+                <th class="border-top-0">Current Roles</th>
             </tr>
         </thead>
         <tbody id="myTable">
-            @foreach ($roles as $role)
+            @foreach ($users as $user)
                 
             <tr>
                 <td>
-                     {{$role->id}}          
+                     {{$user['id']}}          
                 </td>
                 <td>
-                    {{$role->name}}  
+                    {{$user['first_name']}}  
                 </td>
                 <td>
-                    {{$role->created_at}}  
+                    {{$user['last_name']}}  
                 </td>
                 <td>
-                    {{$role->updated_at}}
+                    {{$user['created_at']}}  
                 </td>
                 <td>
-                    <a class="btn btn-primary" href="{{route('role.show',$role->id)}}" role="button">view</a> 
-                    <a class="btn btn-secondary" href="{{route('role.edit',$role->id)}}" role="button">Edit</a>
-                    <a class="btn btn-secondary" href="{{route('permission.assing',$role->id)}}" role="button">Assign Permission</a>
-                    <a class="btn btn-danger" href="" role="button"
+                    {{$user['updated_at']}}
+                </td>
+                <td>
+                    {{  $List = implode(', ', $user['roles']) }}
+                </td>
+                <td>
+                    <a class="btn btn-primary" href="{{route('role.assign',$user['id'])}}" role="button">Assign Role</a> 
+                    {{-- <a class="btn btn-secondary" href="{{route('role.edit',$role->id)}}" role="button">Edit</a> --}}
+                    {{-- <a class="btn btn-danger" href="" role="button"
 
                     onclick="event.preventDefault();
                     if(confirm('Are you sure you really want to delete') )   {
                     document.getElementById('form-delete-{{$role->id}}')
                     .submit()
-                    }">Delete</a>
-                    <form style="display:none" id="{{'form-delete-'.$role->id}}" method="post" action="{{route('role.destroy',$role->id)}}">
+                    }">Delete</a> --}}
+                    {{-- <form style="display:none" id="{{'form-delete-'.$role->id}}" method="post" action="{{route('role.destroy',$role->id)}}">
                         @csrf
                         @method('delete')
-                        </form>
+                        </form> --}}
                 </td>
             </tr>
             @endforeach

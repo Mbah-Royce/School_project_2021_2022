@@ -104,7 +104,7 @@
 
         .navbar-nav li a:active {
             color: #e9ecef !important;
-            background-color: linear-gradient(90deg, rgba(59, 125, 221, .1) rgba(59, 125, 221, .875) 50%, transparent);
+            background-color: linear-gradient(90deg, rgba(252, 252, 252, 0.1) rgba(199, 201, 202, 0.875) 50%, transparent);
             border-left: 4px solid #3b7ddd;
         }
 
@@ -432,7 +432,7 @@
                     <span class="align-middle">Menu</span></a>
                 <ul class="navbar-nav align-self-stretch">
                     <li class="sidebar-header">Pages</li>
-                    <li><a class="nav-link text-left active" role="button"><i class="fas fa-bars"></i>
+                    <li><a class="nav-link text-left" style="color: white" role="button"></i>
                             Dashboard</a>
                     </li>
 
@@ -568,6 +568,7 @@
                                             <div class="submenu-box">
                                                 <ul class="list-unstyled m-0">
                                                     <li><a href="{{ route('role.index') }}">All Role </a></li>
+                                                    <li><a href="{{ route('user.assign') }}">Assign Roles </a></li>
                                                     <li><a href="{{ route('role.create') }}">Add Roles </a></li>
                                                     <li><a href="{{ route('role.index') }}">Edit Roles</a></li>
                                                     <li><a href="{{ route('role.index') }}">Delete Roles</a></li>
@@ -594,6 +595,8 @@
                                                     <li><a href="{{ route('permission.index') }}">All Permissions </a>
                                                     </li>
                                                     <li><a href="{{ route('permission.create') }}">Add Permmission </a>
+                                                    </li>
+                                                    <li><a href="{{ route('permission.create') }}">Assign Permmission </a>
                                                     </li>
                                                     <li><a href="{{ route('permission.index') }}">Edit Permissions</a>
                                                     </li>
@@ -675,7 +678,7 @@
                         </div>
 
                         <!---top bar search--->
-                        {{-- <h2>{{auth()->user()->first_name ." " .auth()->user()->last_name}} </h2> --}}
+                        <h2>{{auth()->user()->first_name ." " .auth()->user()->last_name}} </h2>
 
 
                         <!---top nav bar-->
@@ -707,7 +710,7 @@
                             </li>
                             <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="userDropdown"
                                     role="button" data-toggle="dropdown" href="">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin Royce</span>
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{auth()->user()->first_name}}</span>
                                     <img class="img-profile rounded-circle" src="{{ asset('images/n.jpg') }}"
                                         alt="avatar"></a>
                             </li>

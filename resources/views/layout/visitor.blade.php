@@ -72,7 +72,7 @@
             outline: none;
         }
         .main{
-            background:url('iai.jpg') no-repeat;
+            background:url('iailogo.jpg') no-repeat;
             background-size: cover;
             min-height: 95vh;
             width: 100%;
@@ -162,7 +162,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav m-auto mb-2  mb-lg-0" style="padding: 20px">
         <li class="nav-item">
           <a class="nav-link active"  href="{{route('home')}}">Home</a>
         </li>
@@ -180,6 +180,17 @@
         <li class="nav-item">
           <a class="nav-link " href="{{route('contact')}}">Contact</a>
         </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Lang
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">French</a>
+              <a class="dropdown-item" href="#">English</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
       </ul>
       <form class="d-flex">
         <a class="btn btn0" href="{{route('login')}}" role="button" >Login</a>

@@ -18,7 +18,7 @@ class User extends Authenticatable
      *
      * @var string[]
      */
-    protected $fillable = [   
+    protected $fillable = [
         'email',
         'password',
         'first_name',
@@ -52,7 +52,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-/************************** mutatores and accesssors ******************************/
+    /************************** mutatores and accesssors ******************************/
 
     public function setPasswordAttribute($value)
     {
@@ -68,7 +68,7 @@ class User extends Authenticatable
     //     $this->attributes['profile_picture'] =  Hash::make($value);
     // }
 
-/************************** relationships ******************************/
+    /************************** relationships ******************************/
 
     public function roles()
     {
@@ -89,32 +89,34 @@ class User extends Authenticatable
     {
         return $this->hasMany(gaurdian::class);
     }
-/************************** user methods ******************************/
+    /************************** user methods ******************************/
 
-    public function giveRoleTo(... $roles) {
+    public function giveRoleTo(...$roles)
+    {
 
         $roles = $this->getAllRoles($roles);
-        if($roles === null) {
-          return $this;
+        if ($roles === null) {
+            return $this;
         }
         $this->roles()->attach($roles);
         return $this;
     }
 
-    public function revokeRoleTo(... $roles) {
+    public function revokeRoleTo(...$roles)
+    {
 
         $roles = $this->getAllRoles($roles);
-        if($roles === null) {
-          return $this;
+        if ($roles === null) {
+            return $this;
         }
         $this->roles()->detach($roles);
         return $this;
     }
 
-    protected function getAllRoles(array $roles) {
+    protected function getAllRoles(array $roles)
+    {
 
-        return Role::whereIn('name',$roles)->get();
-        
+        return Role::whereIn('name', $roles)->get();
     }
 
     public function hasRole(...$roles)
@@ -144,8 +146,18 @@ class User extends Authenticatable
         return Permission::whereIn('slug', $permissions)->get();
     }
 
-    public function hasPermissionTo($permission) {
-
+    public function hasPermissionTo($permission)
+    {
         return $this->hasPermissionThroughRole($permission);
-      }
+    }
+
+    public function userRoles()
+    {
+        $data = [];
+        foreach( $this->roles as $key => $role)
+        {
+            $data[$key] = $role->name;
+        }
+       return $data;
+    }
 }

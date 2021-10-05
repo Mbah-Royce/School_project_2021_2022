@@ -1,67 +1,59 @@
 {
-    "admin":[
-        {
-            "name":"create roles",
-            "slug":"create-roles"
+    "admin": [{
+            "name": "create roles",
+            "slug": "create-roles"
         },
         {
-            "name":"delete roles",
-            "slug":"delete-roles"
+            "name": "delete roles",
+            "slug": "delete-roles"
         },
         {
-            "name":"crud permissions",
-            "slug":"crud-permissions"
+            "name": "crud permissions",
+            "slug": "crud-permissions"
         },
         {
-            "name":"create account",
-            "slug":"create-account"
+            "name": "create account",
+            "slug": "create-account"
         },
         {
-            "name":"block account",
-            "slug":"block-account"
+            "name": "block account",
+            "slug": "block-account"
         }
     ],
-    "teacher":[
-        {
-            "name":"start class",
-            "slug":"start-class"
+    "teacher": [{
+            "name": "start class",
+            "slug": "start-class"
         },
         {
-            "name":"public results",
-            "slug":"public-results"
+            "name": "public results",
+            "slug": "public-results"
         },
         {
-            "name":"upload course-content",
-            "slug":"upload course-content"
+            "name": "upload course-content",
+            "slug": "upload course-content"
         }
-        
+
     ],
-    "guardian":[
-        {
-            "name":"demand permission",
-            "slug":"demand-permission"
+    "guardian": [{
+            "name": "demand permission",
+            "slug": "demand-permission"
         },
         {
-            "name":"upload course-content",
-            "slug":"upload course-content"
+            "name": "upload course-content",
+            "slug": "upload course-content"
         },
         {
-            "name":"upload course-content",
-            "slug":"upload course-content"
+            "name": "upload course-content",
+            "slug": "upload course-content"
         }
     ],
-    "student":[
-        {
-            "name":"upload join-class",
-            "slug":"upload-join-class"
+    "student": [{
+            "name": "join class",
+            "slug": "join-class"
         },
         {
-            "name":"upload-download-content",
-            "slug":"upload-download-content"
-        },
-        {
-            "name":"upload course-content",
-            "slug":"upload-course-content"
+            "name": "download content",
+            "slug": "upload-download-content"
         }
     ]
 }

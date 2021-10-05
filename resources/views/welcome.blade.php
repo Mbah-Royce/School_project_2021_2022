@@ -316,12 +316,12 @@
         <div class="container py-5">
             <div class="row">
                 <div class="col-lg-7">
-                    <h1>
+                    {{-- <h1>
                         Keeping You Connected <br>
                         Keeping You Productive <br>
                         Keeping You Close <br>
-                    </h1>
-                    <button class="btn2">About</button>
+                    </h1> --}}
+                    {{-- <button class="btn2">About</button> --}}
                 </div>
             </div>
         </div>

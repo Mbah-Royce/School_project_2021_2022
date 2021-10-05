@@ -89,6 +89,13 @@ Route::get('timetable',[TimeTableManagement::class,'create'])->name('timetable.c
 Route::post('timetable',[TimeTableManagement::class,'store'])->name('timetable.store');
 Route::get('timetable/show/{id}',[TimeTableManagement::class,'show'])->name('timetable.show');
 
+Route::get('/user-role',[AdminController::class,'userRole'])->name('user.assign');
+Route::get('/assign-role/{id}',[AdminController::class,'assignRole'])->name('role.assign');
+Route::post('/assign-role',[AdminController::class,'giveRole'])->name('role.assign.post');
+Route::post('/assign-permission/{id}',[AdminController::class,'assignPermission'])->name('permission.assign');
+
+
+
 });
 // Route::view('/setpass', 'Auth.set-pass')->name('setpass');
 // Route::post('/setpass',[LoginController::class,'setPass'])->name('setPass-post');

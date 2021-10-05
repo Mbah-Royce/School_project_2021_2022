@@ -450,7 +450,7 @@
             </li>
             <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="userDropdown" role="button"
                 data-toggle="dropdown">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">AR</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{auth()->user()->first_name}}</span>
                     <img class="img-profile rounded-circle" src="{{asset('copy.jpg')}}" alt="avatar">
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="userDropdown">
