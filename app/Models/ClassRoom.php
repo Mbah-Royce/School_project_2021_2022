@@ -13,4 +13,19 @@ class ClassRoom extends Model
         'name',
         'capacity',
     ];
+
+    public function students()
+    {
+        return $this->hasMany(Student::class);
+    }
+
+    public function courses()
+    {
+        return $this->hasMany(Course::class);
+    }
+
+    public function timeTable()
+    {
+        return $this->hasMany(Timetable::class);
+    }
 }

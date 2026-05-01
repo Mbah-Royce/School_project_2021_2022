@@ -27,7 +27,7 @@
             <div class="row">
                 <div class="col-sm-3">
                     <div class="card">
-                        <div class="card-body">
+                        <div class="card-body" style="background-color:rgba(241, 241, 107, 0.507)">
                             <h5 class="card-title mb-4">
                                Today 
                             </h5>
@@ -47,7 +47,7 @@
             
                 <div class="col-sm-3">
                     <div class="card">
-                        <div class="card-body">
+                        <div class="card-body" style="background-color:rgba(93, 228, 238, 0.205)">
                             <h5 class="card-title mb-4">
                                 Messages
                             </h5>
@@ -64,7 +64,7 @@
 
                 <div class="col-sm-3">
                     <div class="card">
-                        <div class="card-body">
+                        <div class="card-body" style="background-color:rgba(243, 119, 119, 0.295)">
                             <h5 class="card-title mb-4">
                                 Assignment
                             </h5>
@@ -81,9 +81,9 @@
 
                 <div class="col-sm-3">
                     <div class="card">
-                        <div class="card-body">
+                        <div class="card-body" style="background-color:rgba(140, 243, 140, 0.384)">
                             <h5 class="card-title mb-4">
-                                Notifications
+                                Announcments
                             </h5>
                             <h1 class="display-5 mt-1 mb-3">
                                 2
@@ -104,13 +104,13 @@
                     <div class="d-md-flex align-items-center">
                         <div>
                     <h4 class="card-title">
-                        Top Sale
+                        Courses
                     </h4>
                     <h5 class="card-subtitle">
                         over view
                     </h5>
                         </div>
-                    <div class="ml-auto">
+                    {{-- <div class="ml-auto">
                         <div class="dl">
                         <select class="custom-select">
                             <option value="0" selected>Mothly</option>
@@ -118,177 +118,48 @@
                             <option value="0">daily</option>
                             <option value="0">yearly</option>
                         </select>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
-
+        <input class="form-control" id="myInput" type="text" style="width:300px;"placeholder="Search..">
         <div class="table-responsive">
             <table class="table v-middle">
                 <thead>
                     <tr class="bg-light">
-                        <th class="border-top-0">Product</th>
-                        <th class="border-top-0">License</th>
-                        <th class="border-top-0">support agent</th>
-                        <th class="border-top-0">Technology</th>
-                        <th class="border-top-0">Ticket</th>
-                        <th class="border-top-0">Sales</th>
+                        <th class="border-top-0">Id</th>
+                        <th class="border-top-0">Name</th>
+                        <th class="border-top-0">Duration</th>
+                        <th class="border-top-0">Coef</th>
+                        <th class="border-top-0">Actions</th>
+        
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
+                <tbody id="myTable">
+                    @foreach ($courses as $course)
+                     <tr>
                         <td>
-                            
-                                        Elite Admin
-                        
+                             {{$course->id}}          
                         </td>
                         <td>
-                           Single use 
+                            {{$course->name}}  
                         </td>
                         <td>
-                          John doe  
+                            {{$course->duration}}  
                         </td>
                         <td>
-                           <label class="label label-danger">Angular</label> 
+                            {{$course->coef}}  
                         </td>
-                        <td>
-                          46  
-                        </td>
-                        <td>
-                           356 
-                        </td>
-                        <td>
-                            <h4 class="m-b-0">bbb</h4>
+                       <td>
+                            <a class="btn btn-primary" href={{route('content.create',$course->id)}} role="button">Upload Content</a> 
+                            <a class="btn btn-secondary" href={{route('content.show',$course->id)}}  role="button">View Content</a>
+                            <a class="btn btn-danger white" href={{route('start.class',$course->id)}}  role="button">Start Class</a>
+        
                         </td>
                     </tr>
-                    <tr>
-                        <td>
-                            <div class="d-flex align-items-center">     
-                                <div>
-                                    <h4 class="m-b-0 font-16">
-                                        Elite Admin
-                                    </h4>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                           Single use 
-                        </td>
-                        <td>
-                          John doe  
-                        </td>
-                        <td>
-                           <label class="label label-danger">Angular</label> 
-                        </td>
-                        <td>
-                          46  
-                        </td>
-                        <td>
-                           356 
-                        </td>
-                        <td>
-                            <h4 class="m-b-0"></h4>
-                        </td>
-                    </tr> 
-                    <tr>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <div class="m-r-10">
-                                    <a class="btn btn-circle-info ">EA</a>       
-                                </div>
-                                <div>
-                                    <h4 class="m-b-0 font-16">
-                                        Elite Admin
-                                    </h4>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                           Single use 
-                        </td>
-                        <td>
-                          John doe  
-                        </td>
-                        <td>
-                           <label class="label label-danger">Angular</label> 
-                        </td>
-                        <td>
-                          46  
-                        </td>
-                        <td>
-                           356 
-                        </td>
-                        <td>
-                            <h4 class="m-b-0"></h4>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <div class="m-r-10">
-                                    <a class="btn btn-circle-info ">EA</a>       
-                                </div>
-                                <div>
-                                    <h4 class="m-b-0 font-16">
-                                        Elite Admin
-                                    </h4>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                           Single use 
-                        </td>
-                        <td>
-                          John doe  
-                        </td>
-                        <td>
-                           <label class="label label-danger">Angular</label> 
-                        </td>
-                        <td>
-                          46  
-                        </td>
-                        <td>
-                           356 
-                        </td>
-                        <td>
-                            <h4 class="m-b-0"></h4>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <div class="m-r-10">
-                                    <a class="btn btn-circle-info ">EA</a>       
-                                </div>
-                                <div>
-                                    <h4 class="m-b-0 font-16">
-                                        Elite Admin
-                                    </h4>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                           Single use 
-                        </td>
-                        <td>
-                          John doe  
-                        </td>
-                        <td>
-                           <label class="label label-danger">Angular</label> 
-                        </td>
-                        <td>
-                          46  
-                        </td>
-                        <td>
-                           356 
-                        </td>
-                        <td>
-                            <h4 class="m-b-0"></h4>
-                        </td>
-                    </tr>  
+                    @endforeach
                 </tbody>
             </table>
-        </div>
             </div>
         </div>
     </div>

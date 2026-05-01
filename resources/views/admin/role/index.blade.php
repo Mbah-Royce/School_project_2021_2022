@@ -54,6 +54,7 @@
                 <td>
                     <a class="btn btn-primary" href="{{route('role.show',$role->id)}}" role="button">view</a> 
                     <a class="btn btn-secondary" href="{{route('role.edit',$role->id)}}" role="button">Edit</a>
+                    <a class="btn btn-secondary" href="{{route('permission.assing',$role->id)}}" role="button">Assign Permission</a>
                     <a class="btn btn-danger" href="" role="button"
 
                     onclick="event.preventDefault();

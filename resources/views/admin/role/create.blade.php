@@ -23,6 +23,7 @@
 <div class="card height-auto">
     <div class="card-body">
         <h5 class="card-title">Role Creation Form</h5>
+        <x-alert/>
         <form method="POST" action="{{route('role.store')}}">
             @csrf
             <div class="row justify-content-center">

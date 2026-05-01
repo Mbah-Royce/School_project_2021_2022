@@ -17,13 +17,30 @@
             margin:0;
             box-sizing: border-box;
         }
+        html, body {
+  height:100%;
+}
+
+.center {
+    /* position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  
+  background-color: #ccc;
+  border-radius: 3px; */
+  /* padding: 90px; */
+}
         body{
-            background: rgb(219, 226, 226)
+            background: rgb(179, 235, 179);
         }
         .row{
             background: white;
             border-radius: 30px;
-            box-shadow: 12px 12px 22px grey 
+            box-shadow: 12px 12px 22px rgb(210, 255, 201) 
         }
         img{
             border-top-left-radius: 30px;
@@ -46,7 +63,7 @@
             border: 1px solid
         }
         .test{
-            background: rgb(245, 239, 239) url('images/link.jpg');
+            background: rgb(245, 239, 239) url('iailogo1.jpg');
             background-position: center;
             background-size: cover; 
         }
@@ -58,16 +75,15 @@
     <title>Hello, world!</title>
   </head>
   <body>
-    <section class="form my-4 mx-20 px-10" >
+    <section class="form my-4 mx-20 px-10 center" >
         <div class="container">
             <div class="row justify-content-center no-gutters">
                 <div class="test col-lg-7 text-center ">
-                    <h1 class="font-weight-bold text-center">Ensuring Connectivity</h1>
-                    <h1 class="font-weight-bold text-center">Keeping you connected</h1>
+                    <h1 class="font-weight-bold text-center"style="color:white">AICS CAMEROON</h1>
                 </div>
                 <div class=" col-lg-5 px-5 pt-3">
                     <h1 class="font-weight-bold py-3 text-center">Welcome Back</h1>
-                    <h4 class="text-center">Sign into your account</h4>
+                    <h4 class="text-center">Login into your account</h4>
                     <form method="POST" action="/login">
                         @csrf
                         <x-alert/>
@@ -96,7 +112,7 @@
                                 <button  type="submit" class="btn1 mt-3 mb-4">Login</button>
                             </div>
                         </div>
-                        <a href="" class="text-center">Forgot Password?</a>
+                        <a href="{{route('forget.password.get')}}" class="text-center">Forgot Password?</a>
                     </form>
                 </div>
             </div>

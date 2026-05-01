@@ -14,11 +14,11 @@
     @stack('child-scripts')
 
     <!-- Fonts -->
-    {{-- <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <script src="https://kit.fontawesome.com/c441c0bd75.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" 
-    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous"> --}}
+    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
 
     <!-- Styles -->
@@ -86,7 +86,7 @@
             letter-spacing: 2px;
         }
         .navbar-nav li a:hover{
-            transform: scale(1.2);
+            transform: scale(1.1);
         }
         .submenu-box ul li a{
             padding: 4px 10px 4px 20px !important;
@@ -236,8 +236,8 @@
             color: #858796 !important;
         }
         .nav-link .img-profile{
-            height: 40px;
-            width: 40px;           
+            height: 60px;
+            width: 60px;           
         }
         .badge-counter{
             position: absolute;
@@ -377,7 +377,7 @@
         <nav class="fixed-top align-top" id="sidebar-wrapper" role="navigation">
             <div class="simplebar-content" style="padding: 0px;">
                 <a class="sidebar-brand" href="#">
-                    <span class="align-middle">Vishweb design</span></a>
+                    <span class="align-middle">Menu</span></a>
                 <ul class="navbar-nav me-auto mb-2 px-5 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link" href="#">Dashboard</a>
@@ -401,7 +401,7 @@
                         <a class="nav-link" href="#">Profile</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#">Notificaitons</a>
+                        <a class="nav-link" href="#">Announcments</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="#">Settings</a>
@@ -449,9 +449,15 @@
                 </a>
             </li>
             <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="userDropdown" role="button"
-                data-toggle="dropdown" href="">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin Royce</span>
-                    <img class="img-profile rounded-circle" src="{{asset('images/n.jpg')}}" alt="avatar"></a>
+                data-toggle="dropdown">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{auth()->user()->first_name}}</span>
+                    <img class="img-profile rounded-circle" src="{{asset('copy.jpg')}}" alt="avatar">
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  </ul>
             </li>
         </ul>
         </nav>
@@ -468,7 +474,7 @@
                  <div class="col-6 text-left">
                      <p class="md-0">
                          <a href="#" class="muted">
-                             <strong>Dashboard Vishweb design</strong>
+                             <strong style="color:rgb(10, 48, 10)">AICS</strong>
                          </a>
                      </p>
                  </div>

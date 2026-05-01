@@ -27,4 +27,29 @@ class Course extends Model
     {
         return $this->belongsTo(Teacher::class);
     }
+
+    public function semester()
+    {
+        return $this->belongsTo(Semester::class);
+    }
+
+    public function content()
+    {
+        return $this->hasMany(CourseContent::class);
+    }
+
+    public function courseResults()
+    {
+        return $this->hasMany(CourseResult::class);
+    }
+
+    public function timeTable()
+    {
+        return $this->belongsToMany(Timetable::class,'course_timetable')->withPivot('start_time', 'end_time','status','days')->withTimestamps();
+    }
+
+    public function liveClass()
+    {
+        return $this->hasOne(LiveClass::class);
+    }
 }

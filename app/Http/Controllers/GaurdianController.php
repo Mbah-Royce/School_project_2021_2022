@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\gaurdian;
+use App\Models\Student;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class GaurdianController extends Controller
@@ -13,7 +16,8 @@ class GaurdianController extends Controller
      */
     public function index()
     {
-        //
+        $gaurdians = gaurdian::paginate(10);
+        return view('admin.gaurdian.index',compact('gaurdians'));
     }
 
     /**
@@ -23,7 +27,7 @@ class GaurdianController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.gaurdian.create');
     }
 
     /**
@@ -34,7 +38,30 @@ class GaurdianController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'student_id' => 'required|exists:students,id'
+        ]);
+        
+        $user = User::create([
+            'email' => $request->email,
+            'password' => 'password',
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'dob' => $request->dob,
+            'gender' => $request->gender,
+            'phone' => $request->phone,
+            'profile_picture' => $request->profile_picture
+        ]);
+        $user->giveRoleto('guardian');
+        $gaurdian = $user->gaurdian()->create([
+            'id_number' => $request->id_number,
+            'address' => $request->address,
+            'profession' => $request->profession,
+        ]);
+        $student = Student::find($request->student_id);
+        $student->update(['gaurdian_id' => $gaurdian->id]);
+        return redirect()->back()->with('message','Guardian successfully created');
+
     }
 
     /**
@@ -80,5 +107,37 @@ class GaurdianController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function block($id)
+    {
+        $gaurdian = gaurdian::findorfail($id);
+        if($gaurdian->user->status){
+            $gaurdian->user->update([
+                'status' => false
+            ]);
+            $message = "Account Blocked Succssfully";
+        }else{
+            $gaurdian->user->update([
+                'status' => true
+            ]);
+            $message = "Account Unblocked Succssfully";
+        }
+        return redirect()->back()->with('message',$message);
+    }
+
+    public function displayDashboard()
+    {
+        $gaurdian = gaurdian::where('user_id',auth()->user()->id)->first();
+        $students = $gaurdian->student()->get()->map(function($student){
+            $data = [
+                'student_id' => $student->id,
+                'student_name' => $student->user->first_name." ".$student->user->last_name,
+                'student_class' => $student->classRoom->name,
+                'student_class_id' => $student->classRoom->id
+            ];
+            return $data;
+        });
+        return view('gaurdian.dashboard',compact('students'));
     }
 }

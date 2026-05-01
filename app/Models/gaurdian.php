@@ -8,4 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class gaurdian extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'id_number',
+        'address',
+        'profession'
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function student()
+    {
+        return $this->hasMany(student::class);
+    }
 }

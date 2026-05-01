@@ -10,15 +10,15 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
+    <script src="{{ asset('js/app.js') }}" defer></script>
     @stack('child-scripts')
 
     <!-- Fonts -->
-    {{-- <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <script src="https://kit.fontawesome.com/c441c0bd75.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" 
-    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous"> --}}
+    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
 
     <!-- Styles -->
@@ -377,13 +377,13 @@
         <nav class="fixed-top align-top" id="sidebar-wrapper" role="navigation">
             <div class="simplebar-content" style="padding: 0px;">
                 <a class="sidebar-brand" href="#">
-                    <span class="align-middle">Vishweb design</span></a>
+                    <span class="align-middle">Menu</span></a>
                 <ul class="navbar-nav me-auto mb-2 px-5 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link" href="#">Dashboard</a>
                       </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">My Courses</a>
+                        <a class="nav-link" href="">My Courses</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="#">Assignment</a>
@@ -392,7 +392,7 @@
                         <a class="nav-link" href="#">Messages</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#">Timetable</a>
+                        <a class="nav-link" href="{{route('student.table')}}">Timetable</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="#">Results</a>
@@ -420,7 +420,7 @@
             </div>
 
             <!---top bar search--->
-        {{-- <h2>{{auth()->user()->first_name ." " .auth()->user()->last_name}} </h2> --}}
+        <h2>{{auth()->user()->first_name ." " .auth()->user()->last_name}} </h2>
 
         <!---top nav bar-->
 
@@ -447,7 +447,8 @@
             </li>
             <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="userDropdown" role="button"
                 data-toggle="dropdown" href="">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin Royce</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">        {{auth()->user()->first_name}} 
+                </span>
                     <img class="img-profile rounded-circle" src="{{asset('images/n.jpg')}}" alt="avatar"></a>
             </li>
         </ul>
@@ -465,7 +466,7 @@
                  <div class="col-6 text-left">
                      <p class="md-0">
                          <a href="#" class="muted">
-                             <strong>Dashboard Vishweb design</strong>
+                             <strong style="color:rgb(10, 48, 10)">AICS</strong>
                          </a>
                      </p>
                  </div>

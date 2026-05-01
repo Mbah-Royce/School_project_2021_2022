@@ -18,7 +18,7 @@ class User extends Authenticatable
      *
      * @var string[]
      */
-    protected $fillable = [   
+    protected $fillable = [
         'email',
         'password',
         'first_name',
@@ -26,7 +26,11 @@ class User extends Authenticatable
         'dob',
         'gender',
         'phone',
-        'profile_picture'
+        'profile_picture',
+        'current_address',
+        'state',
+        'status',
+        'is_changed'
     ];
 
     /**
@@ -48,7 +52,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-/************************** mutatores and accesssors ******************************/
+    /************************** mutatores and accesssors ******************************/
 
     public function setPasswordAttribute($value)
     {
@@ -64,11 +68,11 @@ class User extends Authenticatable
     //     $this->attributes['profile_picture'] =  Hash::make($value);
     // }
 
-/************************** relationships ******************************/
+    /************************** relationships ******************************/
 
     public function roles()
     {
-        return $this->belongsToMany(Role::class, 'role_user');
+        return $this->belongsToMany(Role::class, 'role_user')->withTimestamps();
     }
 
     public function student()
@@ -80,29 +84,46 @@ class User extends Authenticatable
     {
         return $this->hasMany(Teacher::class);
     }
-/************************** user methods ******************************/
 
-    public function giveRoleTo(... $roles) {
+    public function gaurdian()
+    {
+        return $this->hasMany(gaurdian::class);
+    }
+    /************************** user methods ******************************/
+
+    public function giveRoleTo(...$roles)
+    {
 
         $roles = $this->getAllRoles($roles);
-        if($roles === null) {
-          return $this;
+        if ($roles === null) {
+            return $this;
         }
-        $this->roles()->saveMany($roles);
+        $this->roles()->attach($roles);
         return $this;
     }
 
-    protected function getAllRoles(array $roles) {
+    public function revokeRoleTo(...$roles)
+    {
 
-        return Role::whereIn('name',$roles)->get();
-        
+        $roles = $this->getAllRoles($roles);
+        if ($roles === null) {
+            return $this;
+        }
+        $this->roles()->detach($roles);
+        return $this;
+    }
+
+    protected function getAllRoles(array $roles)
+    {
+
+        return Role::whereIn('name', $roles)->get();
     }
 
     public function hasRole(...$roles)
     {
 
         foreach ($roles as $role) {
-            if ($this->roles->contains('slug', $role)) {
+            if ($this->roles->contains('name', $role)) {
                 return true;
             }
         }
@@ -123,5 +144,20 @@ class User extends Authenticatable
     protected function getAllPermissions(array $permissions)
     {
         return Permission::whereIn('slug', $permissions)->get();
+    }
+
+    public function hasPermissionTo($permission)
+    {
+        return $this->hasPermissionThroughRole($permission);
+    }
+
+    public function userRoles()
+    {
+        $data = [];
+        foreach( $this->roles as $key => $role)
+        {
+            $data[$key] = $role->name;
+        }
+       return $data;
     }
 }

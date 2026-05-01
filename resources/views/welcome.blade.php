@@ -1,4 +1,4 @@
-<!doctype html>
+{{-- <!doctype html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -40,6 +40,7 @@
             cursor: pointer;
             transition: all 0.4s;
             background-color: rgb(18, 53, 18);
+            padding-top:15px;
         }
         .btn0:hover{
             background-color: rgb(255, 84, 22);
@@ -61,7 +62,7 @@
             outline: none;
         }
         .main{
-            background:url('copy.jpg') no-repeat;
+            background:url('iai.jpg') no-repeat;
             background-size: cover;
             min-height: 95vh;
             width: 100%;
@@ -171,8 +172,10 @@
         </li>
       </ul>
       <form class="d-flex">
-        <button class="btn0">Login</button>
-        <button class="btn1 mx-2">Follow</button>
+        <a class="btn btn-primary btn0" href="{{route('login')}}" role="button">Login</a>
+        {{-- <button class="btn0" href="#">Login</button> --}}
+        {{-- <button class="btn1 mx-2">Follow</button> --}}
+        {{-- <a class="btn btn-primary btn1" href="#" role="button">Follow</a>
       </form>
     </div>
   </div>
@@ -303,4 +306,110 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
   </body>
-</html>
+</html> --}} 
+
+@extends('layout.visitor')
+
+@section('home')
+    <!--================== main section =====================--->
+    <section class="main py-5">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-7">
+                    {{-- <h1>
+                        Keeping You Connected <br>
+                        Keeping You Productive <br>
+                        Keeping You Close <br>
+                    </h1> --}}
+                    {{-- <button class="btn2">About</button> --}}
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!---============ category section--->
+    <section class="ceta py-5">
+        <div class="container fluid py-5 text-center">
+            <h1>OUR FIELDS</h1>
+            <div class="row py-5">
+                <div class="col-lg-11 m-auto pt-3">
+                    <div class="row py-5">
+                        <div class="col-lg-4">
+                            <div class="card py-3">
+                                <div class="card-body">
+                                    <img src ="contact.jpg" class="img-fluid my-3" alt="">
+                                    <h6>ICT Training</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="card py-4">
+                                <div class="card-body">
+                                    <img src ="sr.jpg" class="img-fluid my-3" alt="">
+                                    <h6>Networking</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="card py-4">
+                                <div class="card-body">
+                                    <img src ="nm.jpg" class="img-fluid my-3" alt="">
+                                    <h6>Computer Maintainance</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="card py-3">
+                                <div class="card-body">
+                                    <img src ="coro.jpg" class="img-fluid my-3" alt="">
+                                    <h6>Software Engineering</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="card py-3">
+                                <div class="card-body">
+                                    <img src ="env.jfif" class="img-fluid my-3" alt="">
+                                    <h6>Entrepreneurship</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="card py-3">
+                                <div class="card-body">
+                                    <img src ="kk.jpg" class="img-fluid my-3" alt="">
+                                    <h6>Communication</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row py-3">
+                        <div class="col-lg-5 m-auto mt-5">
+                            <button class="btn3">BROWSE ALL FIELDS</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!--===================== resume ====================---->
+
+    <section class="resume py-5 text-center text-white">
+        <div class="container py-5">
+            <div class="row py-5">
+                <div class="col-lg-10 m-auto">
+                    <p class="pb-3">More About Us</p>
+                    <h1>Stay in touch</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-5 m-auto">
+                    <button class="btn4">Upload your data</button>
+                </div>
+            </div>
+        </div>
+    </section>
+@endsection

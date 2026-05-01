@@ -63,7 +63,6 @@
 @endsection
 @push('child-jscripts')
 <script>
-alert('I\'m coming from child')
 var i = 0;
     $("#dynamic-ar").click(function () {
         ++i;

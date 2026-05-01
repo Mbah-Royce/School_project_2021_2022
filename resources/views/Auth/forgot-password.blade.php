@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        *{
+            padding:0;
+            margin:0;
+            box-sizing: border-box;
+        }
+        body{
+            background: rgb(219, 226, 226)
+        }
+        .row{
+            background: white;
+            border-radius: 30px;
+            box-shadow: 12px 12px 22px grey 
+        }
+        img{
+            border-top-left-radius: 30px;
+            border-bottom-left-radius: 30px;
+            height: 100%;        
+        }
+        .btn1{
+            border: none;
+            outline: none;
+            height: 50px;
+            width: 100%;
+            background: rgb(18, 53, 18);
+            color: white;
+            border-radius: 4px;
+            font-weight: bold
+        }
+        .btn1:hover{
+            background: rgb(255, 84, 22);
+            color: white;
+            border: 1px solid
+        }
+        .test{
+            /* background: rgb(245, 239, 239) url('images/link.jpg'); */
+            background-position: center;
+            background-size: cover;
+            margin-top: 50px; 
+        }
+        h1{
+            padding-top: 20px;
+        }
+        </style>
+  </head>
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <section class="form my-4 mx-20 px-10" >
+        <div class="container">
+            <div class="row justify-content-center no-gutters">
+                <div class="test col-lg-7 text-center ">
+                    <h5 class="font-weight-bold text-center">
+                        Forgot your password? No problem. 
+                        Just let us know your email address and we will email you a password reset link 
+                        that will allow you to choose a new one.</h5>
+                </div>
+                <div class=" col-lg-5 px-5 pt-3">
+                    <h1 class="font-weight-bold py-3 text-center">AICS CAMEROON</h1>
+                    <h4 class="text-center">Input your recovery email</h4>
+                    <form method="POST" action="{{route('forget.password.post')}}">
+                        @csrf
+                        <x-alert/>
+                        <div class="form-row justify-content-center">
+                            <div class="col-lg-9">
+                                <input type="email" placeholder="Email" name="email" class="form-control my-3 p-3 @error('email') is-invalid @enderror" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-row justify-content-center">
+                            <div class="col-lg-9">
+                                <button  type="submit" class="btn1 mt-3 mb-4">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
