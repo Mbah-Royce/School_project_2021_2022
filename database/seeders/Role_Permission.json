@@ -1,0 +1,59 @@
+{
+    "admin": [{
+            "name": "create roles",
+            "slug": "create-roles"
+        },
+        {
+            "name": "delete roles",
+            "slug": "delete-roles"
+        },
+        {
+            "name": "crud permissions",
+            "slug": "crud-permissions"
+        },
+        {
+            "name": "create account",
+            "slug": "create-account"
+        },
+        {
+            "name": "block account",
+            "slug": "block-account"
+        }
+    ],
+    "teacher": [{
+            "name": "start class",
+            "slug": "start-class"
+        },
+        {
+            "name": "public results",
+            "slug": "public-results"
+        },
+        {
+            "name": "upload course-content",
+            "slug": "upload course-content"
+        }
+
+    ],
+    "guardian": [{
+            "name": "demand permission",
+            "slug": "demand-permission"
+        },
+        {
+            "name": "upload course-content",
+            "slug": "upload course-content"
+        },
+        {
+            "name": "upload course-content",
+            "slug": "upload course-content"
+        }
+    ],
+    "student": [{
+            "name": "join class",
+            "slug": "join-class"
+        },
+        {
+            "name": "download content",
+            "slug": "upload-download-content"
+        }
+    ]
+}
